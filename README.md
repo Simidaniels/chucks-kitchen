@@ -22,7 +22,7 @@ A Modern restaurant for chucks kitchen, showcasing authentic Nigerian home-style
 
 * Started and Finished the SignIn and SignUp Page and the mobile responsiveness [14/02/2026] getting ready to push to Github.
 
-* Sign In Page
+# Sign In Page
 
 - Email / Phone input
 
@@ -38,7 +38,7 @@ A Modern restaurant for chucks kitchen, showcasing authentic Nigerian home-style
 
 - Hero image with branded overlay
 
-* Sign Up Page
+# Sign Up Page
 
 - Email input
 
@@ -54,6 +54,15 @@ A Modern restaurant for chucks kitchen, showcasing authentic Nigerian home-style
 
 - Fully responsive layout
 
+# Homepage
+
+- The homepage of Chucks Kitchen showcases the main features of the site:
+
+- Hero Section with a search bar that overlays the bottom of the hero image.
+
+- Popular Categories section displaying different food categories in a grid.
+
+- Chef's Specials section showcasing featured meals in a dynamic grid layout.
 
 
 

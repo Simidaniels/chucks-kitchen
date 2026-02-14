@@ -1,0 +1,322 @@
+/* =========================
+   GENERAL
+========================= */
+
+.homepage {
+    font-family: "Poppins", sans-serif;
+    background: #ccc;
+    /* color: #222; */
+}
+
+/* =========================
+   HERO SECTION
+========================= */
+
+.hero-section {
+    position: relative;
+    height: 80vh;
+    overflow: hidden;
+}
+
+.hero-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Dark overlay */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.45);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 80px;
+    color: #fff;
+}
+.hero-overlay-content {
+    max-width: 800px;
+}
+.hero-overlay h1 {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.hero-overlay h2 {
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 25px;
+}
+
+/* Discover Button */
+.discover-btn {
+    width: fit-content;
+    padding: 12px 28px;
+    background: #e67e22;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.discover-btn:hover {
+    background: #d35400;
+}
+
+/* =========================
+   SEARCH BAR
+========================= */
+
+.hero-search {
+    position: absolute;
+    bottom: 50px;
+    /* half overlaps the next section */
+    left: 50%;
+    /* center horizontally */
+    transform: translateX(-50%);
+    /* only horizontal centering */
+    width: 500px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 20px;
+    z-index: 100;
+}
+.hero-search input {
+    border: none;
+    outline: none;
+    flex: 1;
+    font-size: 14px;
+}
+.search-icon {
+    color: #666;
+    margin-right: 10px;
+    font-size: 16px;
+}
+/* =========================
+   POPULAR CATEGORIES
+========================= */
+/* .popular-categories {
+    padding: 100px 20px 60px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.popular-categories h1 {
+    font-size: 32px;
+    margin-bottom: 40px;
+    max-width: 800px;
+    text-align: center;
+}
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 30px;
+    width: 100%;
+    max-width: 1000px;
+    justify-items: center;
+}
+.category-card {
+    background-color: #fff;
+    border-radius: 10px;
+}
+.category-card img {
+    height: 200px;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.category-card h3 {
+    margin: 15px 0;
+    padding: 40px 20px;
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+} */
+ /* ===== Popular Categories Section ===== */
+ .popular-categories {
+     padding: 100px 20px 60px 20px;
+     /* spacing around the section */
+     text-align: center;
+     /* center headings */
+     display: flex;
+     flex-direction: column;
+     /* stack heading + grid */
+     align-items: center;
+     /* horizontally center everything */
+     justify-content: center;
+     /* optional vertical centering */
+ }
+
+ /* Section heading */
+ .popular-categories h1 {
+     font-size: 32px;
+     margin-bottom: 40px;
+     max-width: 800px;
+     text-align: center;
+ }
+
+ /* Categories grid */
+ .categories-grid {
+     display: grid;
+     grid-template-columns: repeat(3, 1fr);
+     /* 3 columns */
+     grid-template-rows: repeat(2, auto);
+     /* 2 rows */
+     gap: 30px;
+     /* spacing between items */
+     width: 100%;
+     max-width: 1000px;
+     /* limit total grid width */
+     justify-items: center;
+     /* center each grid item horizontally */
+     align-items: center;
+     /* center grid items vertically */
+ }
+
+ /* Individual category card */
+ .category-card {
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* center image and title */
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    border-radius: 12px;
+ }
+
+ .category-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-top-right-radius: 12px;
+    border-top-left-radius: 12px;
+    border-bottom-right-radius: 0;
+    margin-bottom: 15px;
+ }
+
+ .category-card h3 {
+    font-size: 18px;
+    margin: 40px 0px 80px;
+ }
+
+ /* Optional hover effect */
+ .category-card:hover {
+     transform: translateY(-5px);
+ }
+
+/* =========================
+   CHEF'S SPECIALS
+========================= */
+.chefs-specials {
+    padding: 100px 20px 60px 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.chefs-specials h1 {
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+.specials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 30px;
+    width: 100%;
+    max-width: 1000px;
+    justify-items: center;
+}
+.special-card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: 0.3s ease;
+}
+.special-card:hover {
+    transform: translateY(-5px);
+}
+.special-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+.special-info {
+    padding: 15px;
+}
+.special-info h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+.special-info p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 12px;
+}
+.special-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.price {
+    font-weight: 600;
+    color: #e67e22;
+}
+.add-cart {
+    background: #e67e22;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.add-cart:hover {
+    background: #d35400;
+}
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 900px) {
+    .hero-overlay {
+        padding-left: 30px;
+        max-width: 90%;
+    }
+
+    .hero-overlay h1 {
+        font-size: 32px;
+    }
+
+    .hero-search {
+        left: 30px;
+        width: 80%;
+    }
+
+    .categories-grid,
+    .specials-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .popular-categories,
+    .chefs-specials {
+        padding: 80px 30px;
+    }
+}

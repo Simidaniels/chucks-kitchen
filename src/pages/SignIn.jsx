@@ -3,6 +3,7 @@ import { FaGoogle, FaFacebook, FaEnvelope, FaLock } from "react-icons/fa";
 import "./styles/SignIn.css";
 import heroImg from "../assets/hero-food.png";
 import Footer from "../components/Footer";
+import { Link } from "react-router-dom";
 
 
 export default function SignIn() {
@@ -74,9 +75,12 @@ export default function SignIn() {
                     </label>
                     <a href="#">Forgot password?</a>
                 </div>
-                <button type="submit" className="Continue-signin">
+                {/* <button type="submit" className="Continue-signin">
                     Continue
-                </button>
+                </button> */}
+                <Link to="/homepage">
+        <button>Continue</button>
+      </Link>
             </form>
 
           {/* DIVIDER */}
