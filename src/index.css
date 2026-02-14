@@ -1,0 +1,377 @@
+/* Reset & global styles */
+
+@import url('https://fonts.googleapis.com/css2?family=Island+Moments&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+body {
+  background-color: #fff8f0;
+  color: #333;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+button {
+  cursor: pointer;
+}
+/* ================= HERO SECTION ================= */
+.hero {
+  display: flex;
+  min-height: 100vh;
+  background: #fff8f0;
+}
+/* ===== LEFT IMAGE ===== */
+.hero-img {
+  flex: 1;
+  height: 100%;
+  max-height: 100vh;
+  overflow: hidden;
+}
+.hero-img img {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+}
+/* ===== RIGHT CONTENT ===== */
+.hero-content {
+  flex: 1;
+  padding: 60px 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  background: white;
+}
+.hero-logo {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  font-family: 'Island Moments', cursive;
+  font-size: 42px;
+  color: #e67e22;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+/* Sign In button */
+.signin-btn {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  background: #e67e22;
+  color: white;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.signin-btn:hover {
+  background: #d35400;
+}
+.hero-center {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+  text-align: left;
+  margin: 0 auto;
+}
+/* Headline */
+.hero-content h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+/* Paragraph */
+.hero-content p {
+  font-size: 1rem;
+  /* line-height: 1.7; */
+  margin-bottom: 35px;
+  max-width: 500px;
+  color: #444;
+}
+/* ===== ICONS ===== */
+.hero-icons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  /* 2 columns */
+  gap: 25px 40px;
+  margin-bottom: 40px;
+  /* max-width: 400px; */
+}
+.icon-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 20px;
+  color: #e67e22;
+}
+.icon-box svg {
+  background: #FFE1C4;
+  font-size: 32px;
+  color: #e67e22;
+  width: 44px;
+  height: 44px;
+  padding: 8px;
+  border-radius: 13px;
+}
+.icon-box span {
+  /* width: auto; */
+  font-size: 14px;
+  color: #333;
+}
+/* ===== BUTTONS ===== */
+.hero-buttons {
+  display: flex;
+  flex-direction: column;
+  /* stack vertically */
+  gap: 15px;
+  /* width: 32vw */
+  /* keeps buttons tight */
+}
+.primary-btn {
+  background: #e67e22;
+  color: white;
+  border: none;
+  padding: 20px 30px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.primary-btn:hover {
+  background: #d35400;
+}
+.secondary-btn {
+  background: transparent;
+  border: 2px solid #1e88e5;
+  color: #1e88e5;
+  padding: 20px 30px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+/* ================= HERO FOOT LINKS ================= */
+.hero-bottom {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+  color: #000;
+  /* margin-bottom: 40px; */
+}
+.hero-bottom a.foot-link {
+  color: #1e88e5;
+  text-decoration: none;
+  margin: 0 5px;
+  transition: 0.3s;
+}
+.hero-bottom a.foot-link:hover {
+  text-decoration: underline;
+  color: #ffd7a0;
+}
+/* ================= RESPONSIVENESS FOR HERO SECTION================= */
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+  }
+  .hero-img img {
+    height: 45vh;
+  }
+  .hero-content {
+    padding: 40px 20px;
+    text-align: center;
+  }
+  .hero-icons {
+    justify-content: center;
+    gap: 25px;
+  }
+  .hero-buttons {
+    flex-direction: column;
+    width: auto;
+  }
+  .signin-btn {
+    position: static;
+    align-self: flex-end;
+    margin-bottom: 25px;
+  }
+}
+@media (max-width: 500px) {
+  .hero-img img {
+    display: none;
+  }
+  .hero-img {
+    background: url(./assets/mobile-plantain.png);
+    width: auto;
+    /* height: 500%; */
+    padding: 20%;
+    margin: 3%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .hero-icons {
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    gap: 25px 40px;
+    margin-bottom: 40px;
+    max-width: 400px;
+  }
+  .icon-box {
+     background-color: #f3f4f6;
+     padding: 6px;
+     border-radius: 8px;
+  }
+   .icon-box span {
+     font-size: 16px;
+     color: #000;
+     font-weight: 500;
+  }
+   .hero-bottom {
+    display: none;
+  }
+  .hero-center {
+    margin: 25% auto;
+  }
+ .hero-center p {
+   margin-bottom: 4%;
+ }
+  .hero-logo {
+    position: absolute;
+    top: 80px;
+    left: 20%;
+    font-size: 40px;
+    font-weight: 300;
+  }
+  .signin-btn {
+    position: absolute;
+    top: 10px;
+    background: #fff;
+    color: #1e88e5;
+    border: 2px solid #1e88e5;
+    border-radius: 10px;
+    padding: 10px 20px;
+  }
+  .signin-btn:hover {
+    background: #1e88e5;
+    color: #fff;
+  }
+}
+/* ================= FOOTER ================= */
+.footer {
+  position: relative;
+  background: #5C4033;
+  padding: 60px 40px 20px;
+  color: #fff;
+}
+/* grid layout */
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+}
+/* column */
+.footer-col h3 {
+  margin-bottom: 15px;
+  color: #fff;
+}
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+.footer-col ul li {
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+.footer-links a {
+  text-decoration: none;
+  color: #fff;
+  transition: 0.3s;
+}
+.footer-links a:hover {
+  color: #e67e22;
+  /* padding-left: 5px; */
+}
+/* logo */
+.footer-logo {
+  font-family: 'Island Moments', cursive;
+  font-size: 42px;
+  color: #e67e22;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+.footer-desc {
+  font-size: 14px;
+  line-height: 1.5;
+  max-width: 260px;
+}
+/* socials */
+.social-icons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  list-style: none;
+}
+.social-icons ul li {
+  list-style: none;
+}
+.social-icons a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 14px;
+}
+.social-icons a:hover {
+  color: #e67e22;
+  transition: 0.2s;
+}
+.social-icons svg:hover {
+  transform: scale(1.2);
+  transition: 0.2s;
+}
+/* bottom copyright */
+.footer-bottom {
+  text-align: left;
+  margin-top: 40px;
+  padding-top: 20px;
+  /* border-top: 1px solid #f0c8a0; */
+  font-size: 13px;
+}
+/* Scroll-up button positioned inside footer */
+.scroll-up-btn {
+  position: absolute;
+  bottom: 20px;
+  /* distance from bottom of footer */
+  right: 20px;
+  /* distance from right of footer */
+  background: #1e88e5;
+  color: white;
+  border: none;
+  padding: 12px 16px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s, background 0.2s;
+}
+.scroll-up-btn:hover {
+  background: #d35400;
+  transform: translateY(-3px);
+}
+/* ============= RESPONSIVE FOR FOOTER ============= */
+@media (max-width: 900px) {
+  .footer-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 500px) {
+  .footer {
+    display: none;
+  }
+}
+/* ================= LANDING PAGE [HERO SECTION AND FOOTER SECTION] COCLUDED ================= */
