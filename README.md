@@ -17,8 +17,10 @@ A Modern restaurant for chucks kitchen, showcasing authentic Nigerian home-style
 ** Mobile --> vertical layout
 
 
+** Finished the Landing Page and the responsiveness [13/02/2026] getting ready to push to Github
 
 
-** I just finished the Landing Page and the responsiveness [13/02/2026] getting ready to push to Github
+** Started and Finished the SignIn Page and the mobile responsiveness [14/02/2026] getting ready to push to Github.
+
 
 ## TrueMinds Innovations Internship, SimiDaniels.

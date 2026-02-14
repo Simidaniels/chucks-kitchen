@@ -1,6 +1,7 @@
 import React from "react";
 import heroImg from "../assets/hero-food.png";
 import { FaUtensils, FaTruck } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 export default function Hero() {
   return (
@@ -14,9 +15,9 @@ export default function Hero() {
       {/* RIGHT CONTENT */}
       <div className="hero-content">
         <h2 className="hero-logo">Chucks Kitchen</h2>
-        
-        <button className="signin-btn">Sign In</button>
-
+        <Link to="/signin">
+          <button className="signin-btn">Sign In</button>
+        </Link>
 <div className="hero-center">
         <h1>Your Authentic Taste of Nigeria</h1>
 

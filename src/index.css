@@ -44,7 +44,7 @@ button {
   flex-direction: column;
   justify-content: center;
   position: relative;
-  background: white;
+  background: #fff;
 }
 .hero-logo {
   position: absolute;
@@ -71,6 +71,9 @@ button {
 }
 .signin-btn:hover {
   background: #d35400;
+  color: #fff;
+  border: none;
+  transition: .2s ;
 }
 .hero-center {
   display: flex;
