@@ -94,12 +94,9 @@ export default function SignIn() {
             <FaFacebook /> Continue with Apple
           </button>
         </div>
-
-
-
-        <p className="signup-link">
-          Don’t have an account? <a href="#">Create an account</a>
-        </p>
+            <p className="signup-link">
+              Don’t have an account? <a href="/signup">Create an account</a>
+            </p>
       </div>
 
     </div>

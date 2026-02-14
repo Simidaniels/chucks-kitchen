@@ -202,7 +202,7 @@
     text-align: center;
 }
 .signup-link a {
-    color: #e67e22;
+    color: #1e88e5;
     text-decoration: none;
     font-weight: 600;
 }
@@ -221,4 +221,33 @@
     .signin-card {
         padding: 40px 25px;
     }
+}
+
+/* ===== ADDING THE SIGNIN AND SIGNUP CSS TOGETHER BECAUSE THEY ARE BASICALLY THE SAME FORM ===== */
+/* ===== TERMS CHECKBOX ===== */
+.terms-group {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.checkbox-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    line-height: 1.5;
+}
+.checkbox-container input {
+    margin-top: 4px;
+    accent-color: #e67e22;
+    /* modern browsers */
+    cursor: pointer;
+}
+.terms-text a {
+    color: #1e88e5;
+    font-weight: 500;
+    text-decoration: none;
+}
+.terms-text a:hover {
+    text-decoration: underline;
 }

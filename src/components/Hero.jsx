@@ -18,7 +18,7 @@ export default function Hero() {
         <Link to="/signin">
           <button className="signin-btn">Sign In</button>
         </Link>
-<div className="hero-center">
+      <div className="hero-center">
         <h1>Your Authentic Taste of Nigeria</h1>
 
         <p>
