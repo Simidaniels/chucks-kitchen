@@ -305,13 +305,11 @@
 ========================= */
 @media (max-width: 900px) {
     .heroic-overlay-content h1 {
-            font-size: 2.4rem;
-        }
-    
-        .heroic-overlay-content h2 {
-            font-size: 1.1rem;
-        }
-    
+        font-size: 2.4rem;
+    }
+    .heroic-overlay-content h2 {
+        font-size: 1.1rem;
+    }
     .popular-categories,
     .chefs-specials {
         padding: 80px 30px;
@@ -323,7 +321,8 @@
         grid-template-columns: 1fr;
     }
     .hero-search {
-        width: 350px;
+        width: 340px;
+        bottom: -10px;
     }
     .category-card h3 {
         font-size: 18px;
@@ -341,5 +340,4 @@
     .view-btn:hover {
         text-decoration: underline;
     }
-    
 }
