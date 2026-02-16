@@ -11,21 +11,17 @@
 /* =========================
    HERO SECTION
 ========================= */
-
-.hero-section {
+/* .heroic-section {
     position: relative;
     height: 80vh;
     overflow: hidden;
 }
-
-.hero-img img {
+.heroic-img img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-
-/* Dark overlay */
-.hero-overlay {
+.heroic-overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -38,45 +34,100 @@
     padding-left: 80px;
     color: #fff;
 }
-.hero-overlay-content {
+.heroic-overlay-content {
     max-width: 800px;
 }
-.hero-overlay h1 {
+.heroic-overlay h1 {
     font-size: 48px;
     font-weight: 700;
     margin-bottom: 15px;
 }
-
-.hero-overlay h2 {
+.heroic-overlay h2 {
     font-size: 20px;
     font-weight: 400;
     margin-bottom: 25px;
+} */
+
+/* I WANT TO DO THE RESPONSIVENESS OF THE HOMEPAGE */
+/* ===== HERO SECTION ===== */
+.heroic-section {
+    position: relative;
+    width: 100%;
+    height: 90vh;
+    overflow: hidden;
 }
 
-/* Discover Button */
-.discover-btn {
-    width: fit-content;
-    padding: 12px 28px;
-    background: #e67e22;
-    border: none;
-    border-radius: 6px;
+/* Background Image */
+.heroic-img img {
+    width: 100%;
+    height: 90vh;
+    object-fit: cover;
+    display: block;
+}
+
+/* Wrapper */
+.heroic-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Dark Overlay */
+.heroic-overlay {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    padding: 20px;
+}
+
+/* Content */
+.heroic-overlay-content {
+    /* text-align: left; */
     color: #fff;
-    font-weight: 600;
+    width: 100%;
+    max-width: 800px;
+}
+
+.heroic-overlay-content h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.heroic-overlay-content h2 {
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+/* Button */
+.discover-btn {
+    padding: 12px 28px;
+    background-color: #ff6b00;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 1rem;
     cursor: pointer;
-    transition: 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .discover-btn:hover {
-    background: #d35400;
+    background-color: #e65c00;
+    transform: translateY(-3px);
 }
-
 /* =========================
    SEARCH BAR
 ========================= */
-
 .hero-search {
     position: absolute;
-    bottom: 50px;
+    bottom: -30px;
     /* half overlaps the next section */
     left: 50%;
     /* center horizontally */
@@ -103,89 +154,48 @@
     margin-right: 10px;
     font-size: 16px;
 }
-/* =========================
-   POPULAR CATEGORIES
-========================= */
-/* .popular-categories {
-    padding: 100px 20px 60px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-.popular-categories h1 {
-    font-size: 32px;
-    margin-bottom: 40px;
-    max-width: 800px;
-    text-align: center;
-}
-.categories-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, auto);
-    gap: 30px;
-    width: 100%;
-    max-width: 1000px;
-    justify-items: center;
-}
-.category-card {
-    background-color: #fff;
-    border-radius: 10px;
-}
-.category-card img {
-    height: 200px;
-    object-fit: cover;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-}
-.category-card h3 {
-    margin: 15px 0;
-    padding: 40px 20px;
-    font-size: 16px;
-    font-weight: 700;
-    text-align: center;
-} */
  /* ===== Popular Categories Section ===== */
  .popular-categories {
-     padding: 100px 20px 60px 20px;
-     /* spacing around the section */
-     text-align: center;
-     /* center headings */
-     display: flex;
-     flex-direction: column;
-     /* stack heading + grid */
-     align-items: center;
-     /* horizontally center everything */
-     justify-content: center;
-     /* optional vertical centering */
+    padding: 100px 20px 60px 20px;
+    /* spacing around the section */
+    text-align: center;
+    /* center headings */
+    display: flex;
+    flex-direction: column;
+    /* stack heading + grid */
+    align-items: center;
+    /* horizontally center everything */
+    justify-content: center;
+    /* optional vertical centering */
  }
 
  /* Section heading */
  .popular-categories h1 {
-     font-size: 32px;
-     margin-bottom: 40px;
-     max-width: 800px;
-     text-align: center;
+    font-size: 32px;
+    margin-bottom: 40px;
+    max-width: 800px;
+    text-align: center;
  }
-
  /* Categories grid */
  .categories-grid {
-     display: grid;
-     grid-template-columns: repeat(3, 1fr);
-     /* 3 columns */
-     grid-template-rows: repeat(2, auto);
-     /* 2 rows */
-     gap: 30px;
-     /* spacing between items */
-     width: 100%;
-     max-width: 1000px;
-     /* limit total grid width */
-     justify-items: center;
-     /* center each grid item horizontally */
-     align-items: center;
-     /* center grid items vertically */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* 3 columns */
+    grid-template-rows: repeat(2, auto);
+    /* 2 rows */
+    gap: 30px;
+    /* spacing between items */
+    width: 100%;
+    max-width: 1000px;
+    /* limit total grid width */
+    justify-items: center;
+    /* center each grid item horizontally */
+    align-items: center;
+    /* center grid items vertically */
  }
-
+.view-btn {
+    display: none;
+}
  /* Individual category card */
  .category-card {
     background: #fff;
@@ -198,7 +208,6 @@
     transition: transform 0.3s ease;
     border-radius: 12px;
  }
-
  .category-card img {
     width: 100%;
     height: 200px;
@@ -208,17 +217,14 @@
     border-bottom-right-radius: 0;
     margin-bottom: 15px;
  }
-
  .category-card h3 {
     font-size: 18px;
     margin: 40px 0px 80px;
  }
-
  /* Optional hover effect */
  .category-card:hover {
      transform: translateY(-5px);
  }
-
 /* =========================
    CHEF'S SPECIALS
 ========================= */
@@ -298,27 +304,42 @@
    RESPONSIVE
 ========================= */
 @media (max-width: 900px) {
-    .hero-overlay {
-        padding-left: 30px;
-        max-width: 90%;
-    }
-
-    .hero-overlay h1 {
-        font-size: 32px;
-    }
-
-    .hero-search {
-        left: 30px;
-        width: 80%;
-    }
-
-    .categories-grid,
-    .specials-grid {
-        grid-template-columns: 1fr;
-    }
-
+    .heroic-overlay-content h1 {
+            font-size: 2.4rem;
+        }
+    
+        .heroic-overlay-content h2 {
+            font-size: 1.1rem;
+        }
+    
     .popular-categories,
     .chefs-specials {
         padding: 80px 30px;
     }
+}
+@media (max-width: 700px) {
+    .categories-grid,
+    .specials-grid {
+        grid-template-columns: 1fr;
+    }
+    .hero-search {
+        width: 350px;
+    }
+    .category-card h3 {
+        font-size: 18px;
+        margin: 20px 0px 30px;
+    }
+    .view-btn {
+        display: block;
+        color: #1e88e5;
+        font-size: 15px;
+        border: none;
+        background: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    .view-btn:hover {
+        text-decoration: underline;
+    }
+    
 }

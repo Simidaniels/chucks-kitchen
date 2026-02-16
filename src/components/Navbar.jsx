@@ -10,7 +10,7 @@ export default function Navbar() {
       {/* Logo */}
       <div className="navbar-logo">
         <Link to="/" className="logo-link">
-          <span className="hero-logo">Chucks Kitchen</span>
+          <span className="heroic-logo">Chucks Kitchen</span>
         </Link>
       </div>
 

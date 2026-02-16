@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { FaSearch } from "react-icons/fa";
 
-import heroImg from "../assets/hero-food.png";
+import heroImg from "../assets/homepage-img.png";
 import footImg from "../assets/ewa-agoyin.png";
 
 import category1 from "../assets/jollof.png";
@@ -24,13 +24,13 @@ export default function Homepage() {
       <Navbar />
 
       {/* ===== HERO SECTION ===== */}
-      <section className="hero-section">
-        <div className="hero-img">
+      <section className="heroic-section">
+        <div className="heroic-img">
           <img src={heroImg} alt="Delicious Food" />
         </div>
-        <div className="hero-wrapper">
-        <div className="hero-overlay">
-        <div className="hero-overlay-content">
+        <div className="heroic-wrapper">
+        <div className="heroic-overlay">
+        <div className="heroic-overlay-content">
         
           <h1>The Heart of Nigerian Home Cooking</h1>
           <h2>Handcrafted with passion, delivered with care.</h2>
@@ -78,12 +78,17 @@ export default function Homepage() {
             <img src={category3} alt="Category 4" />
             <h3>Jollof Delights</h3>
           </div>
+
+          <button className="view-btn">
+            View All Categories
+          </button>
+
         </div>
       </section>
       {/* ===== CHEF'S SPECIALS ===== */}
       <section className="chefs-specials">
-  <h1>Chef's Specials</h1>
-  <div className="specials-grid">
+      <h1>Chef's Specials</h1>
+      <div className="specials-grid">
     {[
       { img: special1, title: "Spicy Tilapia Pepper Soup", description: "A comforting and spicy soup with tender tilapia fish, a true Nigerian delicacy.", price: "₦3,500" },
       { img: category1, title: "Jollof Rice & Fried Chicken", description: "Our signature Jollof rice, cooked to perfection, served wirh succulent fried chicken.", price: "₦3,500" },
@@ -104,15 +109,18 @@ export default function Homepage() {
         </div>
       </div>
     ))}
+    <button className="view-btn">
+            View All Specials
+          </button>
   </div>
 </section>
-    <section className="hero-section">
-        <div className="hero-img">
+    <section className="heroic-section">
+        <div className="heroic-img">
           <img src={footImg} alt="Delicious Food" />
         </div>
-        <div className="hero-wrapper">
-        <div className="hero-overlay">
-        <div className="hero-overlay-content">
+        <div className="heroic-wrapper">
+        <div className="heroic-overlay">
+        <div className="heroic-overlay-content">
         
           <h1>Introducing Our New Menu Additions!</h1>
           <h2>Explore exciting new dishes, crafted with the freshest ingredients and authentic Nigerian flavors. Limited time offer!</h2>
