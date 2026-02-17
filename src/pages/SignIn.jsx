@@ -75,9 +75,9 @@ export default function SignIn() {
                     </label>
                     <a href="#">Forgot password?</a>
                 </div>
-                <Link to="/homepage">
-        <button type="submit" className="Continue-signin">Continue</button>
-      </Link>
+                <Link to="/homepage" className="Continue-signin">
+                  Continue
+                </Link>
             </form>
 
           {/* DIVIDER */}

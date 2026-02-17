@@ -138,6 +138,8 @@
 }
 /* ===== CONTINUE BUTTON ===== */
 .Continue-signin {
+    display: block;
+    text-align: center;
     width: 100%;
     padding: 12px;
     background: #e67e22;

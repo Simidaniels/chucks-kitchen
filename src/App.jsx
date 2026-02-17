@@ -5,6 +5,7 @@ import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import Homepage from "./pages/Homepage";
 import Menu from "./pages/Menu";
+import FoodDetails from "./pages/FoodDetails";
 
 function Home() {
   return (
@@ -24,6 +25,9 @@ export default function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/homepage" element={<Homepage />} />
         <Route path="/menu" element={<Menu />} />
+        <Route path="/food/:id" element={<FoodDetails />} />
+
+
       </Routes>
     </Router>
   );
