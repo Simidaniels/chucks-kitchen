@@ -19,8 +19,9 @@ import special4 from "../assets/special2.png";
 import "./styles/Homepage.css";
 
 export default function Homepage() {
-  const [showAll, setShowAll] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [showAllCategories, setShowAllCategories] = useState(false);
+  const [showAllSpecials, setShowAllSpecials] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -32,6 +33,19 @@ export default function Homepage() {
 
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  /* ===============================
+     DATA ARRAYS
+  =============================== */
+
+  const categories = [
+    { img: category1, title: "Jollof Delights" },
+    { img: category2, title: "Swallow & Soups" },
+    { img: category3, title: "Grills & BBQ" },
+    { img: category4, title: "Sweet Treats" },
+    { img: category2, title: "Rice Combos" },
+    { img: category3, title: "Street Food" },
+  ];
 
   const specials = [
     {
@@ -78,8 +92,15 @@ export default function Homepage() {
     },
   ];
 
+  const visibleCategories =
+    isMobile && !showAllCategories
+      ? categories.slice(0, 3)
+      : categories;
+
   const visibleSpecials =
-    isMobile && !showAll ? specials.slice(0, 3) : specials;
+    isMobile && !showAllSpecials
+      ? specials.slice(0, 3)
+      : specials;
 
   return (
     <div className="homepage">
@@ -107,7 +128,7 @@ export default function Homepage() {
         </div>
       </section>
 
-      {/* Search */}
+      {/* ===== SEARCH ===== */}
       <div className="hero-search">
         <FaSearch className="search-icon" />
         <input
@@ -121,30 +142,26 @@ export default function Homepage() {
         <h1>Popular Categories</h1>
 
         <div className="categories-grid">
-          <div className="category-card">
-            <img src={category1} alt="Jollof" />
-            <h3>Jollof Delights</h3>
-          </div>
-
-          <div className="category-card">
-            <img src={category2} alt="Swallow" />
-            <h3>Swallow & Soups</h3>
-          </div>
-
-          <div className="category-card">
-            <img src={category3} alt="Grills" />
-            <h3>Grills & BBQ</h3>
-          </div>
-
-          <div className="category-card">
-            <img src={category4} alt="Desserts" />
-            <h3>Sweet Treats</h3>
-          </div>
+          {visibleCategories.map((category, index) => (
+            <div key={index} className="category-card">
+              <img src={category.img} alt={category.title} />
+              <h3>{category.title}</h3>
+            </div>
+          ))}
         </div>
 
-        <button className="view-btn">
-          View All Categories
-        </button>
+        {isMobile && (
+          <button
+            className="view-btn"
+            onClick={() =>
+              setShowAllCategories(!showAllCategories)
+            }
+          >
+            {showAllCategories
+              ? "Show Less"
+              : "View All Categories"}
+          </button>
+        )}
       </section>
 
       {/* ===== CHEF'S SPECIALS ===== */}
@@ -174,18 +191,21 @@ export default function Homepage() {
           ))}
         </div>
 
-        {/* Mobile Only Button */}
-        {isMobile && !showAll && (
+        {isMobile && (
           <button
             className="view-btn"
-            onClick={() => setShowAll(true)}
+            onClick={() =>
+              setShowAllSpecials(!showAllSpecials)
+            }
           >
-            View All Specials
+            {showAllSpecials
+              ? "Show Less"
+              : "View All Specials"}
           </button>
         )}
       </section>
 
-      {/* ===== Bottom Hero Section ===== */}
+      {/* ===== BOTTOM HERO ===== */}
       <section className="heroic-section">
         <div className="heroic-img">
           <img src={footImg} alt="New Menu Additions" />
