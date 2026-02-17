@@ -65,7 +65,11 @@ A Modern restaurant for chucks kitchen, showcasing authentic Nigerian home-style
 - Chef's Specials section showcasing featured meals in a dynamic grid layout.
 
 
+# Menu 
 
+
+
+// Added now vite-env.d.ts file for ignore
 
 
 

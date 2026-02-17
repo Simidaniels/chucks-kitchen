@@ -75,11 +75,8 @@ export default function SignIn() {
                     </label>
                     <a href="#">Forgot password?</a>
                 </div>
-                {/* <button type="submit" className="Continue-signin">
-                    Continue
-                </button> */}
                 <Link to="/homepage">
-        <button>Continue</button>
+        <button type="submit" className="Continue-signin">Continue</button>
       </Link>
             </form>
 

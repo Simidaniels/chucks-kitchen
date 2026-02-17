@@ -4,6 +4,7 @@ import Footer from "./components/Footer";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import Homepage from "./pages/Homepage";
+import Menu from "./pages/Menu";
 
 function Home() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/homepage" element={<Homepage />} />
+        <Route path="/menu" element={<Menu />} />
       </Routes>
     </Router>
   );

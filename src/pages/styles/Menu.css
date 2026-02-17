@@ -1,0 +1,419 @@
+/* ===== MENU HERO SECTION ===== */
+.menu-heroic {
+  position: relative;
+  width: 100%;
+  height: 60vh; /* reduced height from homepage */
+  overflow: hidden;
+}
+
+/* Background Image */
+.menu-heroic-img img {
+  width: 100%;
+  height: 60vh;
+  object-fit: cover;
+  display: block;
+}
+
+/* Wrapper */
+.menu-heroic-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Overlay */
+.menu-heroic-overlay {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: left;
+  justify-content: left;
+  padding: 20px;
+}
+
+/* Content */
+.menu-heroic-overlay-content {
+  text-align: left;
+  color: #fff;
+  width: 100%;
+  max-width: 700px;
+}
+
+.menu-heroic-overlay-content h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.menu-heroic-overlay-content h2 {
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+/* Button */
+.menu-discover-btn {
+  padding: 10px 24px;
+  background-color: #ff6b00;
+  border: none;
+  border-radius: 25px;
+  color: #fff;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.menu-discover-btn:hover {
+  background-color: #e65c00;
+  transform: translateY(-2px);
+}
+/* ===== TABLET ===== */
+@media (max-width: 990px) {
+  .menu-heroic {
+    height: 50vh;
+  }
+
+  .menu-heroic-img img {
+    height: 50vh;
+  }
+
+  .menu-heroic-overlay-content h1 {
+    font-size: 2rem;
+  }
+
+  .menu-heroic-overlay-content h2 {
+    font-size: 1rem;
+  }
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 600px) {
+  .menu-heroic {
+    height: 40vh;
+  }
+
+  .menu-heroic-img img {
+    height: 40vh;
+  }
+
+  .menu-heroic-overlay-content h1 {
+    font-size: 1.5rem;
+  }
+
+  .menu-heroic-overlay-content h2 {
+    font-size: 0.9rem;
+  }
+
+  .menu-discover-btn {
+    padding: 8px 20px;
+    font-size: 0.85rem;
+  }
+}
+
+.heroic-categories {
+  width: 90%; /* takes full container width */
+  padding: 12px 20px;
+  margin: 40px 30px;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  background-color: #fff;
+  color: #000;
+  font-weight: 600;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  position: relative;
+}
+.category-list {
+  list-style: none;
+}
+.category-list h3 {
+  padding: 14px 20px;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.category-item {
+  display: block;
+  /* make it fill the parent width */
+  width: 100%;
+  /* full width of the container */
+  padding: 14px 20px;
+  border-radius: 0;
+  /* optional, remove rounded corners */
+  font-weight: 500;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+.category-item:hover {
+  background-color: #f3ac7a;
+  border-radius: 0;
+  border-left: 10px solid #ff6b00;
+}
+
+
+/* Tablet */
+@media (max-width: 992px) {
+  .heroic-categories {
+    width: 95%;
+    margin: 30px auto;
+    padding: 10px 15px;
+  }
+
+  .category-list h3 {
+    font-size: 1.1rem;
+    padding: 12px 15px;
+  }
+
+  .category-item {
+    padding: 12px 15px;
+    font-size: 0.95rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .heroic-categories {
+    width: 100%;
+    margin: 0 auto;
+    padding: 8px 12px;
+    border-radius: 0px;
+  }
+
+  .category-list {
+    display: flex;
+    flex-direction: column;
+    /* stack categories vertically */
+    gap: 8px;
+  }
+
+  .category-list h3 {
+    font-size: 1rem;
+    padding: 10px 12px;
+  }
+
+  .category-item {
+    padding: 10px 12px;
+    font-size: 0.9rem;
+  }
+}
+
+/* ============================= */
+/* POPULAR SECTION */
+/* ============================= */
+
+.menu-popular {
+  width: 90%;
+  max-width: 1200px;
+  margin: 80px auto;
+}
+
+.menu-popular h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+/* ============================= */
+/* GRID LAYOUT */
+/* ============================= */
+
+.menu-popular-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+/* ============================= */
+/* CARD */
+/* ============================= */
+
+.menu-popular-card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu-popular-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* ============================= */
+/* IMAGE */
+/* ============================= */
+
+.menu-popular-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+/* ============================= */
+/* INFO SECTION */
+/* ============================= */
+
+.menu-popular-info {
+  padding: 20px;
+}
+
+.menu-popular-info h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.menu-popular-info p {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+/* ============================= */
+/* FOOTER */
+/* ============================= */
+
+.menu-popular-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-price {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ff6b00;
+}
+
+
+
+/* ============================= */
+/* ADD BUTTON */
+/* ============================= */
+
+.menu-add-cart {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background-color: #ff6b00;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.menu-add-cart:hover {
+  background-color: #e65c00;
+  transform: scale(1.1);
+}
+
+
+/* ============================= */
+/* TABLET */
+/* ============================= */
+
+@media (max-width: 992px) {
+  .menu-popular-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ============================= */
+/* MOBILE */
+/* ============================= */
+
+@media (max-width: 600px) {
+  .menu-popular {
+    width: 95%;
+    margin: 10px auto;
+  }
+
+  .menu-popular h1 {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+  }
+
+  .menu-popular-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  /* Make card horizontal */
+  .menu-popular-card {
+    display: flex;
+    align-items: flex-start;
+    padding: 10px;
+  }
+  /* Image on the left */
+  .menu-popular-card img {
+    width: 110px;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 10px;
+    flex-shrink: 0;
+  }
+  /* Text content on the right */
+  .menu-popular-info {
+    flex: 1;
+    padding: 0 0 0 15px;
+  }
+
+  .menu-popular-info h3 {
+    font-size: 0.95rem;
+    margin-bottom: 6px;
+  }
+  .menu-popular-info p {
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+  .menu-popular-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .menu-price {
+    font-size: 0.9rem;
+  }
+  .menu-add-cart {
+    width: 30px;
+    height: 30px;
+    font-size: 0.8rem;
+  }
+  /* .popular-view-btn {
+    border: none;
+    background: none;
+    color: rgb(54, 54, 255);
+    padding: 25px 0 40px;
+    font-size: 15px;
+  } */
+}
+.popular-view-btn {
+  display: block;
+  margin: 20px auto 0;
+  padding: 20px 0 40px;
+  background: none;
+  color: #1e88e5;
+  font-size: 15px;
+  font-weight: 500;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.popular-view-btn:hover {
+  text-decoration: underline;
+}
