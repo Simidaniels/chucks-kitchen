@@ -1,0 +1,86 @@
+.summary-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.summary-container h1 {
+    margin-bottom: 10px;
+}
+
+.promo-section {
+    margin: 25px 0;
+}
+
+.promo-input {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.promo-input input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+.promo-input button {
+    padding: 10px 15px;
+    background: rgb(230, 125, 34);
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.summary-breakdown {
+    margin-top: 20px;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+.summary-total {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 15px;
+}
+
+
+.delivery-toggle {
+    margin: 25px 0;
+}
+
+.toggle-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.toggle-buttons button {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid rgb(230, 125, 34);
+    background: white;
+    cursor: pointer;
+}
+
+.toggle-buttons button.active {
+    background: rgb(230, 125, 34);
+    color: white;
+}
+
+.special-section {
+    margin: 25px 0;
+}
+
+.special-section textarea {
+    width: 100%;
+    min-height: 80px;
+    padding: 10px;
+    border: 1px solid #ccc;
+}

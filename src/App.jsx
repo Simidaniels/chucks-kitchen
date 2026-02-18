@@ -8,6 +8,10 @@ import Homepage from "./pages/Homepage";
 import Menu from "./pages/Menu";
 import FoodDetails from "./pages/Fooddetails";
 import Cart from "./pages/Cart";
+import OrderSummary from "./pages/OrderSummary";
+import DeliveryDetails from "./pages/DeliveryDetails";
+import Payment from "./pages/Payment";
+
 
 function Home() {
   return (
@@ -30,6 +34,11 @@ export default function App() {
         <Route path="/menu" element={<Menu />} />
         <Route path="/food/:id" element={<FoodDetails />} />
         <Route path="/cart" element={<Cart />}  />
+        <Route path="/order-summary" element={<OrderSummary />} />
+        <Route path="/checkout" element={<DeliveryDetails />} />
+        <Route path="/payment" element={<Payment />} />
+
+
       </Routes>
     </Router>
     </CartProvider>

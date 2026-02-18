@@ -2,6 +2,8 @@ import React, { useContext, useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { CartContext } from "../context/CartContext";
+import { useNavigate } from "react-router-dom";
+
 import "./styles/Cart.css";
 
 export default function Cart() {
@@ -34,6 +36,11 @@ const total = cartItems.reduce((sum, item) => {
       [id]: prev[id] > 1 ? prev[id] - 1 : 1,
     }));
   };
+
+
+  const navigate = useNavigate();
+
+
 
   return (
     <>
@@ -91,6 +98,18 @@ const total = cartItems.reduce((sum, item) => {
             {/* Total Price */}
             <div className="cart-total">
               <h2>Total: ₦{total.toLocaleString()}</h2>
+
+
+              <button
+    className="checkout-btn"
+    onClick={() =>
+      navigate("/order-summary", {
+        state: { cartItems, quantities, total },
+      })
+    }
+  >
+    Proceed to Checkout
+  </button>
             </div>
           </>
         )}
