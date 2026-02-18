@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import "./styles/FoodDetails.css";
@@ -14,6 +14,8 @@ import swallow2 from "../assets/swallow2.png";
 
 export default function FoodDetails() {
   const { id } = useParams();
+
+  const navigate = useNavigate();
 
   const allFoods = [
     { id: 1, img: category1, title: "Jollof Rice & Fried Chicken", description: "Our signature Jollof rice cooked to perfection.", price: "₦3,500" },
@@ -39,17 +41,37 @@ export default function FoodDetails() {
       <Navbar />
 
       <div className="food-details-container">
+
+        
+
         {/* LEFT IMAGE */}
         <div className="food-details-image">
           <img src={food.img} alt={food.title} />
         </div>
+        
 
         {/* RIGHT CONTENT */}
         <div className="food-details-content">
-          <h1>{food.title}</h1>
-          <h2 className="food-price">{food.price}</h2>
-          <p className="food-description">{food.description}</p>
+          <div className="food-details-content-container">
+          <div className="food-details-content-wrapper">
+            <h1>{food.title}</h1>
+            <h2 className="food-price">{food.price}</h2>
+            <p className="food-description">{food.description}</p>
 
+            <div className="food-meta">
+              <div className="meta-item">🕐 Mildly Spicy</div>
+              <div className="meta-item">🕐 Vegetarian option available</div>
+              <div className="meta-item allergies">🕐View allergies</div>
+            </div>
+
+          </div>
+              <button 
+                className="close-btn"
+                onClick={() => navigate("/menu")}
+              >
+                ×
+              </button>
+          </div>
           {/* Protein Section */}
           <h3>Choose your Protein</h3>
           <div className="option-item">
@@ -60,14 +82,14 @@ export default function FoodDetails() {
           </div>
 
 
-          <div className="option-item">
+          <div className="option-item protein">
             <label>
               <input type="checkbox" /> Grilled Fish
             </label>
             <p>+₦500</p>
           </div>
 
-          <div className="option-item">
+          <div className="option-item protein">
             <label>
               <input type="checkbox" /> Goat Meat
             </label>
@@ -76,14 +98,14 @@ export default function FoodDetails() {
 
           {/* Extra Sides */}
           <h3>Extra Sides (Optional)</h3>
-          <div className="option-item">
+          <div className="option-item extras">
             <label>
               <input type="checkbox" />Fried Plantain
             </label>
             <p>+₦700</p>
           </div>
 
-          <div className="option-item protein">
+          <div className="option-item extras">
             <label>
               <input type="checkbox" /> Coleslaw
             </label>
@@ -103,6 +125,11 @@ export default function FoodDetails() {
             placeholder="E.g No onion, food is too spicy, food is too hot"
             className="special-instructions"
           />
+
+          <button className="submit-btn">
+            Add to Cart
+          </button>
+
         </div>
       </div>
 
