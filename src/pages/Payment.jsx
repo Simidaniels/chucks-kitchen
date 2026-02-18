@@ -1,22 +1,14 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
+import { useLocation } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { CartContext } from "../context/CartContext";
 import "./styles/Payment.css";
 
 export default function Payment() {
-  const { cartItems } = useContext(CartContext);
+  const location = useLocation();
 
-  // Calculate subtotal from cart items
-  const subtotal = cartItems.reduce(
-    (acc, item) => acc + item.price * (item.quantity || 1),
-    0
-  );
-
-  const deliveryFee = 500;
-  const serviceFee = 200;
-  const tax = 0;
-  const total = subtotal + deliveryFee + serviceFee + tax;
+  // 👇 Get finalTotal passed from OrderSummary
+  const { finalTotal = 0 } = location.state || {};
 
   const [paymentMethod, setPaymentMethod] = useState("card");
   const [cardNumber, setCardNumber] = useState("");
@@ -30,7 +22,7 @@ export default function Payment() {
       return;
     }
 
-    alert(`Payment of ₦${total.toLocaleString()} Successful 🎉`);
+    alert(`Payment of ₦${finalTotal.toLocaleString()} Successful 🎉`);
   };
 
   return (
@@ -44,6 +36,7 @@ export default function Payment() {
         {/* Payment Method */}
         <div className="payment-methods">
           <h3>Pay With</h3>
+
           <div className="method-options">
             <button
               className={paymentMethod === "card" ? "active" : ""}
@@ -51,12 +44,14 @@ export default function Payment() {
             >
               Card
             </button>
+
             <button
               className={paymentMethod === "bank" ? "active" : ""}
               onClick={() => setPaymentMethod("bank")}
             >
               Bank
             </button>
+
             <button
               className={paymentMethod === "transfer" ? "active" : ""}
               onClick={() => setPaymentMethod("transfer")}
@@ -116,7 +111,7 @@ export default function Payment() {
 
         {/* Pay Button */}
         <button className="pay-btn" onClick={handlePayment}>
-          Pay ₦{total.toLocaleString()}
+          Pay ₦{finalTotal.toLocaleString()}
         </button>
 
         {/* Privacy Text */}

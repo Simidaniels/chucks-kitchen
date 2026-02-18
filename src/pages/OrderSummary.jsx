@@ -1,4 +1,3 @@
-// OrderSummary.jsx
 import { useLocation, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -7,9 +6,9 @@ import "./styles/OrderSummary.css";
 
 export default function OrderSummary() {
   const location = useLocation();
-  
   const navigate = useNavigate();
 
+  // 👇 Get subtotal from previous page (Cart)
   const { total: subtotal = 0 } = location.state || {};
 
   const serviceFee = 200;
@@ -22,6 +21,13 @@ export default function OrderSummary() {
   const deliveryFee = deliveryType === "delivery" ? 500 : 0;
 
   const finalTotal = subtotal + deliveryFee + serviceFee + tax;
+
+  // ✅ THIS IS THE IMPORTANT PART
+  const handleProceed = () => {
+    navigate("/payment", {
+      state: { finalTotal }  // 👈 PASS THE TOTAL HERE
+    });
+  };
 
   return (
     <>
@@ -78,6 +84,7 @@ export default function OrderSummary() {
         {/* Delivery / Pickup Toggle */}
         <div className="delivery-toggle">
           <h3>Order Type</h3>
+
           <div className="toggle-buttons">
             <button
               className={deliveryType === "delivery" ? "active" : ""}
@@ -105,12 +112,12 @@ export default function OrderSummary() {
           />
         </div>
 
-        {/* Proceed Button */}
+        {/* ✅ FIXED BUTTON */}
         <button
           className="checkout-btn"
-          onClick={() => navigate("/checkout")}
+          onClick={handleProceed}
         >
-          Proceed to Checkout
+          Proceed to Payment
         </button>
       </div>
 
