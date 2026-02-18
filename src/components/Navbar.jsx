@@ -14,6 +14,7 @@ export default function Navbar() {
         </Link>
       </div>
 
+
       {/* Hamburger Icon */}
       <div
         className={`hamburger ${menuOpen ? "active" : ""}`}
@@ -28,8 +29,8 @@ export default function Navbar() {
 
       {/* Nav Links */}
       <ul className={`navbar-links ${menuOpen ? "active" : ""}`}>
-        <li><Link to="/explore">Explore</Link></li>
-        <li><Link to="/orders">My Orders</Link></li>
+        <li><Link to="/menu">Explore</Link></li>
+        <li><Link to="/cart">My Orders</Link></li>
         <li><Link to="/account">Account</Link></li>
       </ul>
 

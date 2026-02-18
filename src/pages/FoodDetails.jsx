@@ -1,8 +1,12 @@
+// FoodDetails.jsx
 import { useParams, useNavigate } from "react-router-dom";
+import { useState, useContext } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { CartContext } from "../context/CartContext";
 import "./styles/FoodDetails.css";
 
+// Images
 import category1 from "../assets/jollof.png";
 import popular1 from "../assets/popular1.png";
 import popular2 from "../assets/popular2.png";
@@ -14,8 +18,8 @@ import swallow2 from "../assets/swallow2.png";
 
 export default function FoodDetails() {
   const { id } = useParams();
-
   const navigate = useNavigate();
+  const { addToCart } = useContext(CartContext);
 
   const allFoods = [
     { id: 1, img: category1, title: "Jollof Rice & Fried Chicken", description: "Our signature Jollof rice cooked to perfection.", price: "₦3,500" },
@@ -32,104 +36,131 @@ export default function FoodDetails() {
     { id: 12, img: swallow1, title: "Fufu & Okra Soup (Meat)", description: "Rich okra with tender meat.", price: "₦3,500" },
   ];
 
-  const food = allFoods.find((item) => item.id === Number(id));
 
+
+
+  
+  // States
+  const [selectedProtein, setSelectedProtein] = useState("Fried Chicken");
+  const [selectedExtras, setSelectedExtras] = useState([]);
+  const [instructions, setInstructions] = useState("");
+
+
+
+  
+  const food = allFoods.find((item) => item.id === Number(id));
   if (!food) return <h2>Food not found</h2>;
+
+
+  // Handlers
+  const handleProteinChange = (e) => setSelectedProtein(e.target.value);
+
+  const handleExtrasChange = (e) => {
+    const value = e.target.value;
+    setSelectedExtras((prev) =>
+      prev.includes(value) ? prev.filter((item) => item !== value) : [...prev, value]
+    );
+  };
+
+  const handleAddToCart = () => {
+    const numericPrice = Number(food.price.replace(/[^0-9]/g, "")); // Convert ₦ string to number
+    addToCart({
+      id: food.id,
+      title: food.title,
+      img: food.img,
+      price: numericPrice,
+      protein: selectedProtein,
+      extras: selectedExtras,
+      instructions,
+    });
+    alert(`${food.title} added to cart!`);
+  };
 
   return (
     <>
       <Navbar />
 
       <div className="food-details-container">
-
-        
-
         {/* LEFT IMAGE */}
         <div className="food-details-image">
           <img src={food.img} alt={food.title} />
         </div>
-        
 
         {/* RIGHT CONTENT */}
         <div className="food-details-content">
           <div className="food-details-content-container">
-          <div className="food-details-content-wrapper">
-            <h1>{food.title}</h1>
-            <h2 className="food-price">{food.price}</h2>
-            <p className="food-description">{food.description}</p>
+            <div className="food-details-content-wrapper">
+              <h1>{food.title}</h1>
+              <h2 className="food-price">{food.price}</h2>
+              <p className="food-description">{food.description}</p>
 
-            <div className="food-meta">
-              <div className="meta-item">🕐 Mildly Spicy</div>
-              <div className="meta-item">🕐 Vegetarian option available</div>
-              <div className="meta-item allergies">🕐View allergies</div>
+              <div className="food-meta">
+                <div className="meta-item">🕐 Mildly Spicy</div>
+                <div className="meta-item">🕐 Vegetarian option available</div>
+                <div className="meta-item allergies">🕐 View allergies</div>
+              </div>
             </div>
 
+            <button
+              className="close-btn"
+              onClick={() => navigate("/menu")}
+            >
+              ×
+            </button>
           </div>
-              <button 
-                className="close-btn"
-                onClick={() => navigate("/menu")}
-              >
-                ×
-              </button>
-          </div>
+
           {/* Protein Section */}
           <h3>Choose your Protein</h3>
-          <div className="option-item">
-          <label>
-            <input type="checkbox" defaultChecked />Fried Chicken
-          </label>
-          <p className="default-tag">Default</p>
-          </div>
-
-
-          <div className="option-item protein">
-            <label>
-              <input type="checkbox" /> Grilled Fish
-            </label>
-            <p>+₦500</p>
-          </div>
-
-          <div className="option-item protein">
-            <label>
-              <input type="checkbox" /> Goat Meat
-            </label>
-            <p>+₦700</p>
-          </div>
+          {["Fried Chicken", "Grilled Fish", "Goat Meat"].map((p) => (
+            <div key={p} className="option-item protein">
+              <label>
+                <input
+                  type="radio"
+                  name="protein"
+                  value={p}
+                  checked={selectedProtein === p}
+                  onChange={handleProteinChange}
+                />
+                {p}
+              </label>
+              {p === "Fried Chicken" && <p className="default-tag">Default</p>}
+              {p === "Grilled Fish" && <p>+₦500</p>}
+              {p === "Goat Meat" && <p>+₦700</p>}
+            </div>
+          ))}
 
           {/* Extra Sides */}
           <h3>Extra Sides (Optional)</h3>
-          <div className="option-item extras">
-            <label>
-              <input type="checkbox" />Fried Plantain
-            </label>
-            <p>+₦700</p>
-          </div>
-
-          <div className="option-item extras">
-            <label>
-              <input type="checkbox" /> Coleslaw
-            </label>
-            <p>+₦500</p>
-          </div>
-
-          <div className="option-item extras">
-            <label>
-              <input type="checkbox" />Extra Pepper Sauce
-            </label>
-            <p>+₦300</p>
-          </div>
+          {["Fried Plantain", "Coleslaw", "Extra Pepper Sauce"].map((extra) => (
+            <div key={extra} className="option-item extras">
+              <label>
+                <input
+                  type="checkbox"
+                  value={extra}
+                  checked={selectedExtras.includes(extra)}
+                  onChange={handleExtrasChange}
+                />
+                {extra}
+              </label>
+              {extra === "Fried Plantain" && <p>+₦700</p>}
+              {extra === "Coleslaw" && <p>+₦500</p>}
+              {extra === "Extra Pepper Sauce" && <p>+₦300</p>}
+            </div>
+          ))}
 
           {/* Special Instructions */}
           <h3>Special Instructions</h3>
           <textarea
-            placeholder="E.g No onion, food is too spicy, food is too hot"
             className="special-instructions"
+            placeholder="E.g No onion, food is too spicy, food is too hot"
+            value={instructions}
+            onChange={(e) => setInstructions(e.target.value)}
           />
 
-          <button className="submit-btn">
+          {/* Add to Cart */}
+          <button className="submit-btn" onClick={handleAddToCart}>
             Add to Cart
           </button>
-
         </div>
       </div>
 
