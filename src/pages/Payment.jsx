@@ -1,11 +1,14 @@
 import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import "./styles/Payment.css";
 
 export default function Payment() {
   const location = useLocation();
+
+  const navigate = useNavigate();
+
 
   // 👇 Get finalTotal passed from OrderSummary
   const { finalTotal = 0 } = location.state || {};
@@ -22,8 +25,10 @@ export default function Payment() {
       return;
     }
 
-    alert(`Payment of ₦${finalTotal.toLocaleString()} Successful 🎉`);
-  };
+  navigate("/processing", {
+    state: { finalTotal }
+  });
+};
 
   return (
     <>

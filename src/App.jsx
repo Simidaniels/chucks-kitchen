@@ -11,6 +11,8 @@ import Cart from "./pages/Cart";
 import OrderSummary from "./pages/OrderSummary";
 import DeliveryDetails from "./pages/DeliveryDetails";
 import Payment from "./pages/Payment";
+import OrderSuccess from "./pages/OrderSuccess";
+import Processing from "./pages/Processing";
 
 
 function Home() {
@@ -30,14 +32,15 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
-        <Route path="/homepage" element={<Homepage />} />
-        <Route path="/menu" element={<Menu />} />
-        <Route path="/food/:id" element={<FoodDetails />} />
-        <Route path="/cart" element={<Cart />}  />
-        <Route path="/order-summary" element={<OrderSummary />} />
-        <Route path="/checkout" element={<DeliveryDetails />} />
-        <Route path="/payment" element={<Payment />} />
-
+          <Route path="/homepage" element={<Homepage />} />
+          <Route path="/menu" element={<Menu />} />
+          <Route path="/food/:id" element={<FoodDetails />} />
+          <Route path="/cart" element={<Cart />}  />
+          <Route path="/order-summary" element={<OrderSummary />} />
+          <Route path="/checkout" element={<DeliveryDetails />} />
+          <Route path="/payment" element={<Payment />} />
+          <Route path="/processing" element={<Processing />} />
+          <Route path="/order-success" element={<OrderSuccess />} />
 
       </Routes>
     </Router>
