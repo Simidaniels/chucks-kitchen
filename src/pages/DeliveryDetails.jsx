@@ -12,10 +12,11 @@ export default function DeliveryDetails() {
   const [deliveryTime, setDeliveryTime] = useState("");
   const [instructions, setInstructions] = useState("");
   const [phone, setPhone] = useState("");
+  const [showPopup, setShowPopup] = useState(false);
 
   const handleProceed = () => {
     if (!address || !phone) {
-      alert("Please fill in required fields");
+      setShowPopup(true);
       return;
     }
 
@@ -71,7 +72,7 @@ export default function DeliveryDetails() {
 
         {/* Phone Number */}
         <div className="form-group">
-          <label>Phone Number</label>
+          <label>Contact Phone</label>
           <input
             type="tel"
             placeholder="Enter your phone number"
@@ -85,6 +86,19 @@ export default function DeliveryDetails() {
           Proceed to Payment
         </button>
       </div>
+
+      {/* ✅ CUSTOM POPUP */}
+      {showPopup && (
+        <div className="custom-popup-overlay">
+          <div className="custom-popup">
+            <h3>Missing Information</h3>
+            <p>Please fill in Address and Phone Number.</p>
+            <button onClick={() => setShowPopup(false)}>
+              Okay
+            </button>
+          </div>
+        </div>
+      )}
 
       <Footer />
     </>

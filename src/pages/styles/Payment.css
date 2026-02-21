@@ -2,30 +2,35 @@
     max-width: 600px;
     margin: 40px auto;
     padding: 20px;
+    background: #fff;
 }
-
+.payment-container h1 {
+    padding-bottom: 14px;
+}
 .payment-methods {
     margin-top: 20px;
 }
 
+/* Container */
 .method-options {
     display: flex;
-    gap: 10px;
-    margin-top: 10px;
+    flex-direction: row;
+    gap: 22px;
+    /* 👈 GOOD GAP */
+    margin-top: 20px;
 }
 
-.method-options button {
-    flex: 1;
-    padding: 10px;
-    border: 1px solid #000;
-    background: white;
-    cursor: pointer;
+/* Each option styled like a selectable card */
+.radio-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
 }
 
-.method-options button.active {
-    background: #ff7a00;
-    color: white;
-}
+
+
+
 
 .card-details {
     margin-top: 20px;
@@ -63,6 +68,7 @@
     border: none;
     cursor: pointer;
     font-size: 16px;
+    border-radius: 10px;
 }
 
 .pay-btn:hover {

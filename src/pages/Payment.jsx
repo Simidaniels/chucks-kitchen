@@ -6,11 +6,9 @@ import "./styles/Payment.css";
 
 export default function Payment() {
   const location = useLocation();
-
   const navigate = useNavigate();
 
-
-  // 👇 Get finalTotal passed from OrderSummary
+  // Get total from previous page
   const { finalTotal = 0 } = location.state || {};
 
   const [paymentMethod, setPaymentMethod] = useState("card");
@@ -18,21 +16,35 @@ export default function Payment() {
   const [expiry, setExpiry] = useState("");
   const [cvv, setCvv] = useState("");
   const [saveCard, setSaveCard] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
 
   const handlePayment = () => {
-    if (paymentMethod === "card" && (!cardNumber || !expiry || !cvv)) {
-      alert("Please fill in card details");
-      return;
+    if (paymentMethod === "card") {
+      if (!cardNumber || !expiry || !cvv) {
+        setShowPopup(true);
+        return;
+      }
     }
 
-  navigate("/processing", {
-    state: { finalTotal }
-  });
-};
+    navigate("/processing", {
+      state: { finalTotal },
+    });
+  };
 
   return (
     <>
       <Navbar />
+
+      {/* POPUP */}
+      {showPopup && (
+        <div className="custom-popup-overlay">
+          <div className="custom-popup">
+            <h3>Missing Card Details</h3>
+            <p>Please fill in all required card information.</p>
+            <button onClick={() => setShowPopup(false)}>Okay</button>
+          </div>
+        </div>
+      )}
 
       <div className="payment-container">
         <h1>Payment</h1>
@@ -43,26 +55,38 @@ export default function Payment() {
           <h3>Pay With</h3>
 
           <div className="method-options">
-            <button
-              className={paymentMethod === "card" ? "active" : ""}
-              onClick={() => setPaymentMethod("card")}
-            >
+            <label className="radio-option">
+              <input
+                type="radio"
+                name="payment"
+                value="card"
+                checked={paymentMethod === "card"}
+                onChange={(e) => setPaymentMethod(e.target.value)}
+              />
               Card
-            </button>
+            </label>
 
-            <button
-              className={paymentMethod === "bank" ? "active" : ""}
-              onClick={() => setPaymentMethod("bank")}
-            >
+            <label className="radio-option">
+              <input
+                type="radio"
+                name="payment"
+                value="bank"
+                checked={paymentMethod === "bank"}
+                onChange={(e) => setPaymentMethod(e.target.value)}
+              />
               Bank
-            </button>
+            </label>
 
-            <button
-              className={paymentMethod === "transfer" ? "active" : ""}
-              onClick={() => setPaymentMethod("transfer")}
-            >
+            <label className="radio-option">
+              <input
+                type="radio"
+                name="payment"
+                value="transfer"
+                checked={paymentMethod === "transfer"}
+                onChange={(e) => setPaymentMethod(e.target.value)}
+              />
               Transfer
-            </button>
+            </label>
           </div>
         </div>
 
@@ -83,12 +107,17 @@ export default function Payment() {
             <div className="row">
               <div className="form-group">
                 <label>Expiration Date</label>
-                <input
-                  type="text"
-                  placeholder="MM/YY"
-                  value={expiry}
-                  onChange={(e) => setExpiry(e.target.value)}
-                />
+              <input
+                type="text"
+                placeholder="MMYY"
+                value={expiry}
+                maxLength={4}           // limit to 4 characters
+                onChange={(e) => {
+                  // Allow only digits
+                  const value = e.target.value.replace(/\D/g, "");
+                  setExpiry(value);
+                }}
+              />
               </div>
 
               <div className="form-group">
@@ -121,9 +150,8 @@ export default function Payment() {
 
         {/* Privacy Text */}
         <p className="privacy-text">
-          Your personal data will be used to process your order, support your
-          experience throughout this website, and for other purposes described
-          in our privacy policy.
+          Your personal data will be used to process your order and support
+          your experience throughout this website, and for other purposes described in our privacy policy.
         </p>
       </div>
 
