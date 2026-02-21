@@ -11,45 +11,7 @@
 /* =========================
    HERO SECTION
 ========================= */
-/* .heroic-section {
-    position: relative;
-    height: 80vh;
-    overflow: hidden;
-}
-.heroic-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-.heroic-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.45);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-left: 80px;
-    color: #fff;
-}
-.heroic-overlay-content {
-    max-width: 800px;
-}
-.heroic-overlay h1 {
-    font-size: 48px;
-    font-weight: 700;
-    margin-bottom: 15px;
-}
-.heroic-overlay h2 {
-    font-size: 20px;
-    font-weight: 400;
-    margin-bottom: 25px;
-} */
 
-/* I WANT TO DO THE RESPONSIVENESS OF THE HOMEPAGE */
-/* ===== HERO SECTION ===== */
 .heroic-section {
     position: relative;
     width: 100%;
@@ -127,7 +89,7 @@
 ========================= */
 .hero-search {
     position: absolute;
-    bottom: -30px;
+    bottom: -40px;
     /* half overlaps the next section */
     left: 50%;
     /* center horizontally */

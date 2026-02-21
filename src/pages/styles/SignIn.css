@@ -88,6 +88,7 @@
     align-items: center;
 }
 .input-wrapper input {
+    
     width: 100%;
     padding: 12px 14px 12px 42px;
     border: 1px solid #ddd;
@@ -100,9 +101,6 @@
 .input-wrapper input:focus {
     border-color: #e67e22;
     box-shadow: 0 0 0 2px rgba(230, 126, 34, 0.15);
-}
-.input-wrapper input::placeholder {
-    padding-left: 20px;
 }
 /* ===== INPUT ICON ===== */
 .input-icon {

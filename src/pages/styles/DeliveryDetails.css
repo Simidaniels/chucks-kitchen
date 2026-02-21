@@ -46,17 +46,7 @@
 
 
 
-/* Overlay - FULL perfect center */
-.custom-popup-overlay {
-    position: fixed;
-    inset: 0;
-    /* shorthand for top:0 left:0 right:0 bottom:0 */
-    background: rgba(0, 0, 0, 0.55);
-    display: grid;
-    place-items: center;
-    /* PERFECT center */
-    z-index: 9999;
-}
+
 
 /* Popup Box */
 .custom-popup {

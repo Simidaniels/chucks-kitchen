@@ -70,13 +70,10 @@
     display: flex;
     align-items: center;
     gap: 8px;
-
     /* padding: 6px 1px; */
     border-radius: 20px;
-
     /* background-color: #f5f5f5;
     border: 1px solid #e5e5e5; */
-
     transition: all 0.2s ease;
 }
 
@@ -258,15 +255,6 @@
 .submit-btn:hover {
     background-color: #cf711f;
 }
-
-
-
-
-
-
-
-
-
 
 .custom-popup {
     position: fixed;
