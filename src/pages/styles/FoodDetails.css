@@ -260,6 +260,52 @@
 }
 
 
+
+
+
+
+
+
+
+
+.custom-popup {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #4caf50;
+    /* green */
+    color: white;
+    padding: 15px 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-weight: bold;
+    animation: fadeInOut 3s forwards;
+    z-index: 1000;
+}
+
+/* Smooth fade in/out */
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    10% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    90% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+}
+
 /* ============================= */
 /* RESPONSIVE */
 /* ============================= */

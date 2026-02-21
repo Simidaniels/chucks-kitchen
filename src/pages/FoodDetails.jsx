@@ -21,6 +21,10 @@ export default function FoodDetails() {
   const navigate = useNavigate();
   const { addToCart } = useContext(CartContext);
 
+  const [showPopup, setShowPopup] = useState(false);
+  const [popupMessage, setPopupMessage] = useState("");
+
+
   const allFoods = [
     { id: 1, img: category1, title: "Jollof Rice & Fried Chicken", description: "Our signature Jollof rice cooked to perfection.", price: "₦3,500" },
     { id: 2, img: popular4, title: "Eba & Egusi (Goat Meat)", description: "Hearty egusi soup with tender goat meat.", price: "₦3,500" },
@@ -73,7 +77,11 @@ export default function FoodDetails() {
       extras: selectedExtras,
       instructions,
     });
-    alert(`${food.title} added to cart!`);
+      setPopupMessage(`${food.title} added to cart!`);
+      setShowPopup(true);
+
+      // Hide popup after 3 seconds
+      setTimeout(() => setShowPopup(false), 3000);
   };
 
   return (
@@ -162,7 +170,14 @@ export default function FoodDetails() {
             Add to Cart
           </button>
         </div>
+
+        {showPopup && (
+          <div className="custom-popup">
+          {popupMessage}
+          </div>
+        )}
       </div>
+      
 
       <Footer />
     </>

@@ -39,7 +39,7 @@ export default function OrderSummary() {
 
         {/* Promo Section */}
         <div className="promo-section">
-          <h3>Add Promo Code</h3>
+          <h3>Enter Code Here</h3>
           <div className="promo-input">
             <input
               type="text"
@@ -83,7 +83,7 @@ export default function OrderSummary() {
 
         {/* Delivery / Pickup Toggle */}
         <div className="delivery-toggle">
-          <h3>Order Type</h3>
+          {/* <h3>Order Type</h3> */}
 
           <div className="toggle-buttons">
             <button
@@ -104,7 +104,7 @@ export default function OrderSummary() {
 
         {/* Special Instructions */}
         <div className="special-section">
-          <h3>Special Instructions</h3>
+          <h3>Special Instructions for Restaurant</h3>
           <textarea
             placeholder="E.g Leave at the gate, no onions, call on arrival..."
             value={specialInstructions}

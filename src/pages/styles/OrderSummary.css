@@ -2,6 +2,7 @@
     max-width: 600px;
     margin: 40px auto;
     padding: 20px;
+    background: #fff;
 }
 
 .summary-container h1 {
@@ -22,6 +23,7 @@
     flex: 1;
     padding: 10px;
     border: 1px solid #ccc;
+    border-radius: 10px;
 }
 
 .promo-input button {
@@ -30,6 +32,7 @@
     color: white;
     border: none;
     cursor: pointer;
+    border-radius: 10px;
 }
 
 .summary-breakdown {
@@ -57,7 +60,6 @@
 
 .toggle-buttons {
     display: flex;
-    gap: 10px;
     margin-top: 10px;
 }
 
@@ -71,6 +73,31 @@
 
 .toggle-buttons button.active {
     background: rgb(230, 125, 34);
+    color: white;
+}
+
+
+
+/* Remove double border in the middle */
+.toggle-buttons button:first-child {
+    border-right: none;
+}
+
+/* Delivery button - left rounded */
+.toggle-buttons button:first-child {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+/* Pickup button - right rounded */
+.toggle-buttons button:last-child {
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+/* Active state */
+.toggle-buttons button.active {
+    background: #ff7a00;
     color: white;
 }
 
