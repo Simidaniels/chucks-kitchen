@@ -8,7 +8,7 @@ export default function Payment() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // Get total from previous page
+  // Get final total from OrderSummary
   const { finalTotal = 0 } = location.state || {};
 
   const [paymentMethod, setPaymentMethod] = useState("card");
@@ -19,13 +19,12 @@ export default function Payment() {
   const [showPopup, setShowPopup] = useState(false);
 
   const handlePayment = () => {
-    if (paymentMethod === "card") {
-      if (!cardNumber || !expiry || !cvv) {
-        setShowPopup(true);
-        return;
-      }
+    if (paymentMethod === "card" && (!cardNumber || !expiry || !cvv)) {
+      setShowPopup(true);
+      return;
     }
 
+    // Navigate to Processing page with the total
     navigate("/processing", {
       state: { finalTotal },
     });
@@ -35,7 +34,7 @@ export default function Payment() {
     <>
       <Navbar />
 
-      {/* POPUP */}
+      {/* Custom Popup */}
       {showPopup && (
         <div className="custom-popup-overlay">
           <div className="custom-popup">
@@ -50,47 +49,26 @@ export default function Payment() {
         <h1>Payment</h1>
         <hr />
 
-        {/* Payment Method */}
+        {/* Payment Method Selection */}
         <div className="payment-methods">
           <h3>Pay With</h3>
-
           <div className="method-options">
-            <label className="radio-option">
-              <input
-                type="radio"
-                name="payment"
-                value="card"
-                checked={paymentMethod === "card"}
-                onChange={(e) => setPaymentMethod(e.target.value)}
-              />
-              Card
-            </label>
-
-            <label className="radio-option">
-              <input
-                type="radio"
-                name="payment"
-                value="bank"
-                checked={paymentMethod === "bank"}
-                onChange={(e) => setPaymentMethod(e.target.value)}
-              />
-              Bank
-            </label>
-
-            <label className="radio-option">
-              <input
-                type="radio"
-                name="payment"
-                value="transfer"
-                checked={paymentMethod === "transfer"}
-                onChange={(e) => setPaymentMethod(e.target.value)}
-              />
-              Transfer
-            </label>
+            {["card", "bank", "transfer"].map((method) => (
+              <label key={method} className="radio-option">
+                <input
+                  type="radio"
+                  name="payment"
+                  value={method}
+                  checked={paymentMethod === method}
+                  onChange={(e) => setPaymentMethod(e.target.value)}
+                />
+                {method.charAt(0).toUpperCase() + method.slice(1)}
+              </label>
+            ))}
           </div>
         </div>
 
-        {/* Card Details */}
+        {/* Card Details Form */}
         {paymentMethod === "card" && (
           <div className="card-details">
             <div className="form-group">
@@ -107,17 +85,13 @@ export default function Payment() {
             <div className="row">
               <div className="form-group">
                 <label>Expiration Date</label>
-              <input
-                type="text"
-                placeholder="MMYY"
-                value={expiry}
-                maxLength={4}           // limit to 4 characters
-                onChange={(e) => {
-                  // Allow only digits
-                  const value = e.target.value.replace(/\D/g, "");
-                  setExpiry(value);
-                }}
-              />
+                <input
+                  type="text"
+                  placeholder="MMYY"
+                  value={expiry}
+                  maxLength={4}
+                  onChange={(e) => setExpiry(e.target.value.replace(/\D/g, ""))}
+                />
               </div>
 
               <div className="form-group">

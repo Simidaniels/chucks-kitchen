@@ -8,24 +8,23 @@ export default function OrderSummary() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // 👇 Get subtotal from previous page (Cart)
+  // Get subtotal from previous page (Cart)
   const { total: subtotal = 0 } = location.state || {};
-
-  const serviceFee = 200;
-  const tax = 0;
 
   const [deliveryType, setDeliveryType] = useState("delivery");
   const [promoCode, setPromoCode] = useState("");
   const [specialInstructions, setSpecialInstructions] = useState("");
 
+  const serviceFee = 200;
+  const tax = 0;
   const deliveryFee = deliveryType === "delivery" ? 500 : 0;
 
   const finalTotal = subtotal + deliveryFee + serviceFee + tax;
 
-  // ✅ THIS IS THE IMPORTANT PART
   const handleProceed = () => {
-    navigate("/DeliveryDetails", {
-      state: { finalTotal }  // 👈 PASS THE TOTAL HERE
+    // Navigate to Payment page and pass the total
+    navigate("/payment", {
+      state: { finalTotal },
     });
   };
 
@@ -39,7 +38,7 @@ export default function OrderSummary() {
 
         {/* Promo Section */}
         <div className="promo-section">
-          <h3>Enter Code Here</h3>
+          <h3>Enter Promo Code</h3>
           <div className="promo-input">
             <input
               type="text"
@@ -83,8 +82,6 @@ export default function OrderSummary() {
 
         {/* Delivery / Pickup Toggle */}
         <div className="delivery-toggle">
-          {/* <h3>Order Type</h3> */}
-
           <div className="toggle-buttons">
             <button
               className={deliveryType === "delivery" ? "active" : ""}
@@ -106,18 +103,15 @@ export default function OrderSummary() {
         <div className="special-section">
           <h3>Special Instructions for Restaurant</h3>
           <textarea
-            placeholder="E.g Leave at the gate, no onions, call on arrival..."
+            placeholder="E.g. Leave at the gate, no onions, call on arrival..."
             value={specialInstructions}
             onChange={(e) => setSpecialInstructions(e.target.value)}
           />
         </div>
 
-        {/* ✅ FIXED BUTTON */}
-        <button
-          className="checkout-btn"
-          onClick={handleProceed}
-        >
-          Proceed to Checkout
+        {/* Proceed Button */}
+        <button className="checkout-btn" onClick={handleProceed}>
+          Proceed to Payment
         </button>
       </div>
 
