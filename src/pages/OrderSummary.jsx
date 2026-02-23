@@ -23,7 +23,7 @@ export default function OrderSummary() {
 
   const handleProceed = () => {
     // Navigate to Payment page and pass the total
-    navigate("/payment", {
+    navigate("/deliverydetails", {
       state: { finalTotal },
     });
   };
@@ -111,7 +111,7 @@ export default function OrderSummary() {
 
         {/* Proceed Button */}
         <button className="checkout-btn" onClick={handleProceed}>
-          Proceed to Payment
+          Proceed to Checkout
         </button>
       </div>
 

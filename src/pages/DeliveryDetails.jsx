@@ -1,12 +1,15 @@
-// DeliveryDetails.jsx
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import "./styles/DeliveryDetails.css";
 
 export default function DeliveryDetails() {
   const navigate = useNavigate();
+  const location = useLocation();
+
+  // ✅ Receive total from OrderSummary
+  const { finalTotal = 0 } = location.state || {};
 
   const [address, setAddress] = useState("");
   const [deliveryTime, setDeliveryTime] = useState("");
@@ -20,8 +23,10 @@ export default function DeliveryDetails() {
       return;
     }
 
+    // ✅ Pass total again to Payment
     navigate("/payment", {
       state: {
+        finalTotal,   // 👈 THIS WAS MISSING
         address,
         deliveryTime,
         instructions,
@@ -38,7 +43,6 @@ export default function DeliveryDetails() {
         <h1>Delivery Details</h1>
         <hr />
 
-        {/* Address */}
         <div className="form-group">
           <label>Address</label>
           <input
@@ -49,7 +53,6 @@ export default function DeliveryDetails() {
           />
         </div>
 
-        {/* Delivery Time */}
         <div className="form-group">
           <label>Delivery Time</label>
           <input
@@ -60,7 +63,6 @@ export default function DeliveryDetails() {
           />
         </div>
 
-        {/* Delivery Instructions */}
         <div className="form-group">
           <label>Delivery Instructions (Optional)</label>
           <textarea
@@ -70,7 +72,6 @@ export default function DeliveryDetails() {
           />
         </div>
 
-        {/* Phone Number */}
         <div className="form-group">
           <label>Contact Phone</label>
           <input
@@ -81,21 +82,17 @@ export default function DeliveryDetails() {
           />
         </div>
 
-        {/* Proceed Button */}
         <button className="proceed-btn" onClick={handleProceed}>
           Proceed to Payment
         </button>
       </div>
 
-      {/* ✅ CUSTOM POPUP */}
       {showPopup && (
         <div className="custom-popup-overlay">
           <div className="custom-popup">
             <h3>Missing Information</h3>
             <p>Please fill in Address and Phone Number.</p>
-            <button onClick={() => setShowPopup(false)}>
-              Okay
-            </button>
+            <button onClick={() => setShowPopup(false)}>Okay</button>
           </div>
         </div>
       )}
