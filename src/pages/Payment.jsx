@@ -72,15 +72,18 @@ export default function Payment() {
         {paymentMethod === "card" && (
           <div className="card-details">
             <div className="form-group">
-              <label>Card Number</label>
-              <input
-                type="text"
-                maxLength="16"
-                placeholder="1234 5678 9012 3456"
-                value={cardNumber}
-                onChange={(e) => setCardNumber(e.target.value)}
-              />
-            </div>
+  <label>Card Number</label>
+  <input
+    type="text"
+    inputMode="numeric"
+    maxLength="16"
+    placeholder="1234 5678 9012 3456"
+    value={cardNumber}
+    onChange={(e) =>
+      setCardNumber(e.target.value.replace(/\D/g, ""))
+    }
+  />
+</div>
 
             <div className="row">
               <div className="form-group">
