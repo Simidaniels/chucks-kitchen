@@ -20,9 +20,16 @@ import "./styles/Menu.css";
 
 export default function Menu() {
   const navigate = useNavigate();
+  const [toast, setToast] = useState(null);
   const { addToCart } = useContext(CartContext);
   const [showAll, setShowAll] = useState({});
   const [isMobile, setIsMobile] = useState(false);
+
+
+  const showToast = (msg) => {
+  setToast(msg);
+  setTimeout(() => setToast(null), 2000); // hide after 2s
+};
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 600);
@@ -202,7 +209,7 @@ export default function Menu() {
       img: item.img, // <-- add this line
       quantity: 1,
     });
-    alert(`${item.title} has been added to cart!`);
+    showToast(`${item.title} added to cart!`);
   }}
 >
   <FaPlus />
@@ -212,6 +219,13 @@ export default function Menu() {
                 </div>
               ))}
             </div>
+
+
+
+            {/* Toast container */}
+<div className="toast-container">
+  {toast && <div className="toast-message">{toast}</div>}
+</div>
 
             {/* Mobile "View All" Button */}
             {isMobile && !showAll[idx] && section.items.length > 3 && (
