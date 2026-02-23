@@ -7,7 +7,7 @@ import SignUp from "./pages/SignUp";
 import Homepage from "./pages/Homepage";
 import Menu from "./pages/Menu";
 // import FoodDetails from "./pages/FoodDetails";
-import FoodDetails from "./pages/Fooddetails";
+import FoodDetails from "./pages/FoodDetails";
 import Cart from "./pages/Cart";
 import OrderSummary from "./pages/OrderSummary";
 import DeliveryDetails from "./pages/DeliveryDetails";
