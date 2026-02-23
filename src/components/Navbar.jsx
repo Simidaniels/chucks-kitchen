@@ -24,7 +24,7 @@ export default function Navbar() {
       </div>
 
       <nav className="nav-home">
-        <li><Link to="/explore">Home</Link></li>
+        <li><Link to="/homepage">Home</Link></li>
       </nav>
 
       {/* Nav Links */}
