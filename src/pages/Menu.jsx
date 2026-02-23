@@ -1,9 +1,11 @@
+// src/pages/Menu.jsx
 import React, { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { FaPlus } from "react-icons/fa";
 import { CartContext } from "../context/CartContext";
+
 import steakImg from "../assets/steak.png";
 import popular1 from "../assets/popular1.png";
 import popular2 from "../assets/popular2.png";
@@ -17,10 +19,10 @@ import swallow2 from "../assets/swallow2.png";
 import "./styles/Menu.css";
 
 export default function Menu() {
+  const navigate = useNavigate();
   const { addToCart } = useContext(CartContext);
   const [showAll, setShowAll] = useState({});
   const [isMobile, setIsMobile] = useState(false);
-  
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 600);
@@ -39,21 +41,21 @@ export default function Menu() {
           title: "Jollof Rice & Fried Chicken",
           description:
             "Our signature Jollof rice, cooked to perfection, served with succulent fried chicken.",
-          price: "3500",
+          price: 3500,
         },
         {
           id: 2,
           img: popular4,
           title: "Eba & Egusi (Goat Meat)",
           description: "Hearty egusi soup with tender goat meat.",
-          price: "3500",
+          price: 3500,
         },
         {
           id: 3,
           img: popular3,
           title: "Pounded Yam & Edikaikong",
           description: "Traditional pounded yam with rich leafy soup.",
-          price: "3800",
+          price: 3800,
         },
         {
           id: 4,
@@ -61,7 +63,7 @@ export default function Menu() {
           title: "Peppered Snail",
           description:
             "Spicy and savory peppered snail, perfect as a starter.",
-          price: "2500",
+          price: 2500,
         },
         {
           id: 5,
@@ -69,7 +71,7 @@ export default function Menu() {
           title: "Grilled Tilapia Fish",
           description:
             "Whole grilled tilapia seasoned with our special spices.",
-          price: "4500",
+          price: 4500,
         },
         {
           id: 6,
@@ -77,7 +79,7 @@ export default function Menu() {
           title: "Jollof Rice & Fried Chicken (with Plantain)",
           description:
             "Our signature Jollof rice, served with crispy fried chicken and plantain.",
-          price: "3500",
+          price: 3500,
         },
       ],
     },
@@ -90,14 +92,14 @@ export default function Menu() {
           title: "Jollof Rice & Smoked Fish",
           description:
             "Flavorful jollof rice served with perfectly smoked fish.",
-          price: "3000",
+          price: 3000,
         },
         {
           id: 8,
           img: category1,
           title: "Party Jollof Rice (Veg)",
           description: "Vegetarian party jollof, full of rich flavors.",
-          price: "2800",
+          price: 2800,
         },
         {
           id: 9,
@@ -105,7 +107,7 @@ export default function Menu() {
           title: "Party Jollof Rice (Non-Veg)",
           description:
             "Party jollof rice served with chicken or beef, perfect for events.",
-          price: "3500",
+          price: 3500,
         },
       ],
     },
@@ -118,7 +120,7 @@ export default function Menu() {
           title: "Amala with Gbegiri & Ewedu",
           description:
             "Classic Amala served with Gbegiri (beans) and Ewedu (jute leaf) soup.",
-          price: "3100",
+          price: 3100,
         },
         {
           id: 11,
@@ -126,7 +128,7 @@ export default function Menu() {
           title: "Fufu & Okra Soup (Fish)",
           description:
             "Light Fufu served with fresh okra soup and tilapia fish.",
-          price: "3300",
+          price: 3300,
         },
         {
           id: 12,
@@ -134,13 +136,11 @@ export default function Menu() {
           title: "Fufu & Okra Soup (Meat)",
           description:
             "Fufu served with okra soup and tender meat chunks, rich in flavor.",
-          price: "3500",
+          price: 3500,
         },
       ],
     },
   ];
-
-  
 
   return (
     <div className="menu">
@@ -151,7 +151,6 @@ export default function Menu() {
         <div className="heroic-img menu-heroic-img">
           <img src={steakImg} alt="Chuck's Kitchen Menu" />
         </div>
-
         <div className="heroic-wrapper menu-heroic-wrapper">
           <div className="heroic-overlay menu-heroic-overlay">
             <div className="heroic-overlay-content menu-heroic-overlay-content">
@@ -165,19 +164,6 @@ export default function Menu() {
         </div>
       </section>
 
-      {/* ===== MENU CATEGORIES ===== */}
-      <div className="heroic-categories">
-        <ul className="category-list">
-          <h3>Menu Categories</h3>
-          <li className="category-item">Popular</li>
-          <li className="category-item">Jollof Rice & Entrees</li>
-          <li className="category-item">Swallow & Soups</li>
-          <li className="category-item">Grills & Sides</li>
-          <li className="category-item">Beverages</li>
-          <li className="category-item">Desserts</li>
-        </ul>
-      </div>
-
       {/* ===== MENU SECTIONS ===== */}
       {menuSections.map((section, idx) => {
         const visibleItems =
@@ -188,52 +174,56 @@ export default function Menu() {
         return (
           <section key={idx} className="menu-popular">
             <h1>{section.title}</h1>
-
             <div className="menu-popular-grid">
               {visibleItems.map((item) => (
-                <Link
+                <div
                   key={item.id}
-                  to={`/food/${item.id}`}
-                  className="menu-card-link"
+                  className="menu-popular-card"
+                  onClick={() => navigate(`/food/${item.id}`)}
+                  style={{ cursor: "pointer" }}
                 >
-                  <div className="menu-popular-card">
-                    <img src={item.img} alt={item.title} />
-                    <div className="menu-popular-info">
-                      <h3>{item.title}</h3>
-                      <p>{item.description}</p>
-                      <div className="menu-popular-footer">
-                        <span className="menu-price">{item.price}</span>
-                        <button
+                  <img src={item.img} alt={item.title} />
+                  <div className="menu-popular-info">
+                    <h3>{item.title}</h3>
+                    <p>{item.description}</p>
+                    <div className="menu-popular-footer">
+                      <span className="menu-price">
+                        ₦{item.price.toLocaleString()}
+                      </span>
+                      <button
   className="menu-add-cart"
   onClick={(e) => {
-    e.preventDefault();
-    addToCart(item);
+    e.stopPropagation(); // Prevent card click from navigating
+    addToCart({
+      id: item.id,
+      title: item.title,
+      description: item.description,
+      price: item.price,
+      img: item.img, // <-- add this line
+      quantity: 1,
+    });
+    alert(`${item.title} has been added to cart!`);
   }}
 >
   <FaPlus />
 </button>
-                      </div>
                     </div>
                   </div>
-                </Link>
+                </div>
               ))}
             </div>
 
-            {isMobile &&
-              !showAll[idx] &&
-              section.items.length > 3 && (
-                <button
-                  className="popular-view-btn"
-                  onClick={() =>
-                    setShowAll((prev) => ({
-                      ...prev,
-                      [idx]: true,
-                    }))
-                  }
-                >
-                  View All {section.title}
-                </button>
-              )}
+            {/* Mobile "View All" Button */}
+            {isMobile && !showAll[idx] && section.items.length > 3 && (
+              <button
+                className="popular-view-btn"
+                onClick={() =>
+                  setShowAll((prev) => ({ ...prev, [idx]: true }))
+                }
+              >
+                View All {section.title}
+              </button>
+            )}
           </section>
         );
       })}
