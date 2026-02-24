@@ -46,7 +46,9 @@ export default function Hero() {
 
         {/* BUTTONS */}
         <div className="hero-buttons">
-          <button className="primary-btn">Start Your Order</button>
+          <Link to="/signin">
+            <button className="primary-btn">Start Your Order</button>
+          </Link>
           <button className="secondary-btn">Learn More About Us</button>
         </div>
 </div>

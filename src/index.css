@@ -136,6 +136,7 @@ button {
   /* keeps buttons tight */
 }
 .primary-btn {
+  width: 100%;
   background: #e67e22;
   color: white;
   border: none;
@@ -378,4 +379,4 @@ button {
     display: none;
   }
 }
-/* ================= LANDING PAGE [HERO SECTION AND FOOTER SECTION] COCLUDED ================= */
+/* ================= LANDING PAGE [HERO SECTION AND FOOTER SECTION] CONCLUDED ================= */

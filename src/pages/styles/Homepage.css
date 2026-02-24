@@ -298,6 +298,7 @@
         background: none;
         cursor: pointer;
         transition: all 0.3s ease;
+        padding-top: 30px;
     }
     .view-btn:hover {
         text-decoration: underline;

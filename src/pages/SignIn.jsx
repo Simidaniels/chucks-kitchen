@@ -42,7 +42,7 @@ export default function SignIn() {
                 <div className="form-group">
                     <label>Email or Phone Number</label>
                     <div className="input-wrapper">
-                        <FaEnvelope className="input-icon" />
+                      <span className="input-icon"><FaEnvelope/></span>
                         <input
                           type="email"
                           placeholder="name@gmail.com"
