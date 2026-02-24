@@ -47,7 +47,8 @@ export default function DeliveryDetails() {
           <label>Address</label>
           <input
             type="text"
-            placeholder="Enter your delivery address"
+            placeholder="Home: 123 Main Street, Victoria Island, Lagos
+              Apt 4B, Opposite Mega Plaza"
             value={address}
             onChange={(e) => setAddress(e.target.value)}
           />
@@ -66,7 +67,7 @@ export default function DeliveryDetails() {
         <div className="form-group">
           <label>Delivery Instructions (Optional)</label>
           <textarea
-            placeholder="E.g leave at the front door, knock twice ..."
+            placeholder="E.g leave at the front door, knock twice ....."
             value={instructions}
             onChange={(e) => setInstructions(e.target.value)}
           />
@@ -76,7 +77,7 @@ export default function DeliveryDetails() {
           <label>Contact Phone</label>
           <input
             type="tel"
-            placeholder="Enter your phone number"
+            placeholder="+234 801 234 5678"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
           />
