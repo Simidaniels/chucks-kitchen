@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaGoogle, FaFacebook, FaEnvelope, FaLock, FaPhone } from "react-icons/fa";
+import { FaGoogle, FaFacebook, FaEnvelope, FaLock, FaPhone, FaEye, FaEyeSlash } from "react-icons/fa";
 import "./styles/SignIn.css"; // reuse same CSS
 import heroImg from "../assets/hero-food.png";
 import Footer from "../components/Footer";
@@ -81,10 +81,10 @@ export default function SignUp() {
               />
               <span
                 className="toggle-password"
-                onClick={() => setShowPassword(!showPassword)}
-              >
-                {showPassword ? "Hide" : "Show"}
-              </span>
+              onClick={() => setShowPassword(!showPassword)}
+>
+  {showPassword ? <FaEyeSlash /> : <FaEye />}
+</span>
             </div>
           </div>
 
@@ -102,7 +102,7 @@ export default function SignUp() {
                 className="toggle-password"
                 onClick={() => setShowConfirm(!showConfirm)}
               >
-                {showConfirm ? "Hide" : "Show"}
+                {showConfirm ? <FaEyeSlash /> : <FaEye />}
               </span>
             </div>
           </div>

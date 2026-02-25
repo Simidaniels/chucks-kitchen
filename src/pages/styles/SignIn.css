@@ -69,52 +69,44 @@
     text-align: center;
 }
 
-/* ===== FORM ===== */
-.form-group {
-    margin-bottom: 20px;
+
+
+
+
+
+
+
+.form-group .input-wrapper {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 0 12px;
+    background: #fff;
 }
-.form-group label {
-    display: block;
-    margin-bottom: 6px;
-    font-size: 14px;
-    font-weight: 500;
-    color: #444;
-    letter-spacing: 1.6px;
-}
-/* ===== INPUT WRAPPER ===== */
-.input-wrapper {
-    position: relative;
+
+.input-icon {
+    font-size: 16px;
+    color: #888;
+    margin-right: 8px;
     display: flex;
     align-items: center;
 }
+
 .input-wrapper input {
-    
-    width: 100%;
-    padding: 12px 14px 12px 42px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    outline: none;
+    flex: 1; /* takes remaining space */
+    border: none !important;
+    outline: none !important;
     font-size: 14px;
-    transition: 0.3s ease;
-    background: #fff;
+    background: none;
+    padding: 12px 0;
 }
-.input-wrapper input:focus {
-    border-color: #e67e22;
-    box-shadow: 0 0 0 2px rgba(230, 126, 34, 0.15);
-}
-/* ===== INPUT ICON ===== */
-.input-icon {
-    position: absolute;
-    left: 14px;
-    font-size: 14px;
-    color: #222222;
-}
+
 /* ===== PASSWORD TOGGLE ===== */
 .toggle-password {
-    position: absolute;
-    right: 14px;
-    font-size: 13px;
+    font-size: 15px;
     color: #e67e22;
+    transition: color 0.2s ease;
     cursor: pointer;
     user-select: none;
 }
@@ -125,6 +117,7 @@
     align-items: center;
     font-size: 13px;
     margin-bottom: 20px;
+    margin-top: 20px;
 }
 .form-options input {
     margin-right: 6px;

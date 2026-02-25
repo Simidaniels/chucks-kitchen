@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaGoogle, FaFacebook, FaEnvelope, FaLock } from "react-icons/fa";
+import { FaGoogle, FaFacebook, FaEnvelope, FaLock, FaEye, FaEyeSlash } from "react-icons/fa";
 import "./styles/SignIn.css";
 import heroImg from "../assets/hero-food.png";
 import Footer from "../components/Footer";
@@ -62,11 +62,11 @@ export default function SignIn() {
                           required
                         />
                         <span
-                          className="toggle-password"
-                          onClick={() => setShowPassword(!showPassword)}
-                            >
-                            {showPassword ? "Hide" : "Show"}
-                        </span>
+                            className="toggle-password"
+                            onClick={() => setShowPassword(!showPassword)}
+                          >
+                            {showPassword ? <FaEyeSlash /> : <FaEye />}
+                          </span>
                     </div>
                 </div>
                 <div className="form-options">
