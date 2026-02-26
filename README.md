@@ -67,10 +67,67 @@ A Modern restaurant for chucks kitchen, showcasing authentic Nigerian home-style
 
 # Menu 
 
+- Displays menu sections: Popular, Jollof Rice & Entrees, Swallow & Soups.
+
+- Users can view items, add to cart, and navigate to item details.
+
+- Supports mobile-friendly “View All” feature.
+
+- Cards animate on scroll using AOS.
 
 
-// Added now vite-env.d.ts file for ignore
+# Cart
+
+- Shows all items added to cart.
+
+- Users can adjust quantities, view total price, and remove items.
+
+- Navigate to Order Summary from here.
 
 
+# Order Summary (Delivery or Pickup)
+
+- Users select Delivery or Pickup option.
+
+- Proceed to Delivery Details or Pickup instructions.
+
+
+# Delivery Details
+
+- Collects name, address, phone number, and optional instructions.
+
+- Validates input before proceeding to Payment.
+
+
+# Payment
+
+- Users enter card or payment details.
+
+- Shows order summary and total.
+
+- On successful payment, navigates to Order Confirmation.
+
+# Order Confirmation
+
+- Displays success message, order number, and amount paid.
+
+- Option to track order, generate receipt, or contact support.
+
+
+
+
+# Features
+
+- Responsive design for mobile and desktop
+
+- AOS animations for menu cards and cart content
+
+- Quantity management and cart total calculation
+
+- Safe order number generation
+
+- Smooth navigation through ordering flow
+
+- Added data.AOS to some pages for a spectacular animation.
 
 ## TrueMinds Innovations Internship, SimiDaniels.
