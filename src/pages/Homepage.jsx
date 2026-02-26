@@ -4,6 +4,9 @@ import Footer from "../components/Footer";
 import { FaSearch } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 import heroImg from "../assets/homepage-img.png";
 import footImg from "../assets/ewa-agoyin.png";
 
@@ -31,12 +34,14 @@ export default function Homepage() {
     handleResize();
     window.addEventListener("resize", handleResize);
 
+    // Initialize AOS
+    AOS.init({
+      duration: 800,
+      once: true,
+    });
+
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-
-  /* ===============================
-     DATA ARRAYS
-  =============================== */
 
   const categories = [
     { img: category1, title: "Jollof Delights" },
@@ -143,7 +148,12 @@ export default function Homepage() {
 
         <div className="categories-grid">
           {visibleCategories.map((category, index) => (
-            <div key={index} className="category-card">
+            <div
+              key={index}
+              className="category-card"
+              data-aos="zoom-in"
+              data-aos-delay={index * 100}
+            >
               <img src={category.img} alt={category.title} />
               <h3>{category.title}</h3>
             </div>
@@ -170,7 +180,12 @@ export default function Homepage() {
 
         <div className="specials-grid">
           {visibleSpecials.map((special, index) => (
-            <div key={index} className="special-card">
+            <div
+              key={index}
+              className="special-card"
+              data-aos="fade-up"
+              data-aos-delay={index * 150}
+            >
               <img src={special.img} alt={special.title} />
 
               <div className="special-info">

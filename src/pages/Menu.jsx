@@ -6,6 +6,9 @@ import Footer from "../components/Footer";
 import { FaPlus } from "react-icons/fa";
 import { CartContext } from "../context/CartContext";
 
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 import steakImg from "../assets/steak.png";
 import popular1 from "../assets/popular1.png";
 import popular2 from "../assets/popular2.png";
@@ -20,21 +23,32 @@ import "./styles/Menu.css";
 
 export default function Menu() {
   const navigate = useNavigate();
-  const [toast, setToast] = useState(null);
   const { addToCart } = useContext(CartContext);
+
+  const [toast, setToast] = useState(null);
   const [showAll, setShowAll] = useState({});
   const [isMobile, setIsMobile] = useState(false);
 
-
   const showToast = (msg) => {
-  setToast(msg);
-  setTimeout(() => setToast(null), 2000); // hide after 2s
-};
+    setToast(msg);
+    setTimeout(() => setToast(null), 2000);
+  };
 
   useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth <= 600);
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 600);
+    };
+
     handleResize();
     window.addEventListener("resize", handleResize);
+
+    // Initialize AOS (cards only)
+    AOS.init({
+      duration: 800,
+      once: true,
+      easing: "ease-in-out",
+    });
+
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
@@ -113,7 +127,7 @@ export default function Menu() {
           img: category1,
           title: "Party Jollof Rice (Non-Veg)",
           description:
-            "Party jollof rice served with chicken or beef, perfect for events.",
+            "Party jollof rice served with chicken or beef.",
           price: 3500,
         },
       ],
@@ -126,7 +140,7 @@ export default function Menu() {
           img: swallow2,
           title: "Amala with Gbegiri & Ewedu",
           description:
-            "Classic Amala served with Gbegiri (beans) and Ewedu (jute leaf) soup.",
+            "Classic Amala served with Gbegiri and Ewedu soup.",
           price: 3100,
         },
         {
@@ -142,7 +156,7 @@ export default function Menu() {
           img: swallow1,
           title: "Fufu & Okra Soup (Meat)",
           description:
-            "Fufu served with okra soup and tender meat chunks, rich in flavor.",
+            "Fufu served with okra soup and tender meat chunks.",
           price: 3500,
         },
       ],
@@ -153,7 +167,7 @@ export default function Menu() {
     <div className="menu">
       <Navbar />
 
-      {/* ===== HERO SECTION ===== */}
+      {/* HERO SECTION */}
       <section className="heroic-section menu-heroic">
         <div className="heroic-img menu-heroic-img">
           <img src={steakImg} alt="Chuck's Kitchen Menu" />
@@ -171,7 +185,7 @@ export default function Menu() {
         </div>
       </section>
 
-      {/* ===== MENU SECTIONS ===== */}
+      {/* MENU SECTIONS */}
       {menuSections.map((section, idx) => {
         const visibleItems =
           isMobile && !showAll[idx]
@@ -181,58 +195,67 @@ export default function Menu() {
         return (
           <section key={idx} className="menu-popular">
             <h1>{section.title}</h1>
+
             <div className="menu-popular-grid">
-              {visibleItems.map((item) => (
+              {visibleItems.map((item, index) => (
                 <div
                   key={item.id}
                   className="menu-popular-card"
                   onClick={() => navigate(`/food/${item.id}`)}
                   style={{ cursor: "pointer" }}
+                  data-aos="fade-up"
+                  data-aos-delay={index * 100}
                 >
                   <img src={item.img} alt={item.title} />
+
                   <div className="menu-popular-info">
                     <h3>{item.title}</h3>
                     <p>{item.description}</p>
+
                     <div className="menu-popular-footer">
                       <span className="menu-price">
                         ₦{item.price.toLocaleString()}
                       </span>
+
                       <button
-  className="menu-add-cart"
-  onClick={(e) => {
-    e.stopPropagation(); // Prevent card click from navigating
-    addToCart({
-      id: item.id,
-      title: item.title,
-      description: item.description,
-      price: item.price,
-      img: item.img, // <-- add this line
-      quantity: 1,
-    });
-    showToast(`${item.title} added to cart!`);
-  }}
->
-  <FaPlus />
-</button>
+                        className="menu-add-cart"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          addToCart({
+                            id: item.id,
+                            title: item.title,
+                            description: item.description,
+                            price: item.price,
+                            img: item.img,
+                            quantity: 1,
+                          });
+                          showToast(`${item.title} added to cart!`);
+                        }}
+                      >
+                        <FaPlus />
+                      </button>
                     </div>
                   </div>
                 </div>
               ))}
             </div>
 
+            {/* Toast */}
+            <div className="toast-container">
+              {toast && (
+                <div className="toast-message">{toast}</div>
+              )}
+            </div>
 
-
-            {/* Toast container */}
-<div className="toast-container">
-  {toast && <div className="toast-message">{toast}</div>}
-</div>
-
-            {/* Mobile "View All" Button */}
+            {/* Mobile View All */}
             {isMobile && !showAll[idx] && section.items.length > 3 && (
               <button
                 className="popular-view-btn"
                 onClick={() =>
-                  setShowAll((prev) => ({ ...prev, [idx]: true }))
+                  setShowAll((prev) => ({
+                    ...prev,
+                    [idx]: true,
+                  }))
                 }
               >
                 View All {section.title}
