@@ -133,19 +133,12 @@ A Modern restaurant for chucks kitchen, showcasing authentic Nigerian home-style
 
 
 
+# How my project is interlinked (figma file)
+
 - This application is a complete online food ordering system designed to provide a smooth and intuitive user experience from start to finish.
 
-- The journey begins on the Hero page. When a user clicks the “Start Your Order” button, they are redirected to the Sign In page for authentication. After successfully signing in, the user is taken to the Homepage, where they can explore Popular Categories and Chef’s Specials. From there, clicking the “Discover New” button navigates the user to the Menu page.
-
-- The Menu page contains a variety of food categories, including Popular items, Jollof Rice & Entrees, and Swallow & Soups. Users can add items directly to their cart using the plus (+) button. Additionally, clicking on any food item opens the Food Details page, where users can customize their meal by selecting their preferred protein, adding extra sides such as extra pepper sauce, and including special instructions. Items can also be added to the cart from this page.
-
-- Once the user has selected their desired items, they can access the cart through the “My Order” option in the navigation bar. In the cart, users can review their selections, adjust quantities, and proceed to checkout.
-
-- The checkout process begins with the Order Summary page, where users choose between Home Delivery or Pickup. If delivery is selected, the user proceeds to the Delivery Details page to provide their address, contact phone number, and other necessary information.
-
-- After entering delivery details, the user proceeds to the Payment page. The system supports multiple payment options, including card, bank, and transfer. For card payments, users input their card details and confirm the transaction.
-
-- Upon successful payment, the user is redirected to the Order Successful page, completing the ordering process.
+- The journey begins on the Hero page. When a user clicks the “Start Your Order” button, they are redirected to the Sign In page for login or signup. After successfully signing in, the user is taken to the Homepage, where they can explore Popular Categories and Chef’s Specials. From there, clicking the “Discover New” button navigates the user to the Menu page. The Menu page contains a variety of food categories, including Popular items, Jollof Rice & Entrees, and Swallow & Soups. Users can add items directly to their cart using the plus (+) button. Additionally, clicking on any food item opens the Food Details page, where users can customize their meal by selecting their preferred protein, adding extra sides such as extra pepper sauce, and including special instructions. Items can also be added to the cart from this page.
+Once the user has selected their desired items, they can access the cart through the “My Order” option in the navigation bar. In the cart, users can review their selections, adjust quantities, and proceed to checkout. The checkout process begins with the Order Summary page, where users choose between Home Delivery or Pickup. If delivery is selected, the user proceeds to the Delivery Details page to provide their address, contact phone number, and other necessary information. After entering delivery details, the user proceeds to the Payment page. The system supports multiple payment options, including card, bank, and transfer. For card payments, users input their card details and confirm the transaction. Upon successful payment, the user is redirected to the Order Successful page, completing the ordering process.
 
 
 
